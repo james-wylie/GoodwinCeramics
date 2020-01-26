@@ -29,5 +29,5 @@ Vue.component('products-list', require('./components/products-list.vue').default
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#app'
 });

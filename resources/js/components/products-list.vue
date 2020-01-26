@@ -3,36 +3,20 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
+                    Hello USERNAME HERE
                     <div class="card-header">Product List</div>
-                    <div class="card-header">Product List</div>
+                        <div class="card-body">
+                            SPACE!
+                        </div>
 
+                    <div class="card-header">Product List</div>
+                        <ul id="productList">
+                    <li v-for="product in products" :key="product.name">
                     <div class="card-body">
-                        Products
-                        <form>
-                        <br>Title: 
-                        <input type="text" placeholder="Larry" required>
-                        <br>Description: 
-                        <input type="text-area" placeholder="Larry" required>
-                        <br>Image One: 
-                        <input type="url" placeholder="Larry" required>
-                        <br>Image Two:
-                        <input type="url" placeholder="Larry">
-                        <br>Price:
-                        <input type="number" placeholder="Larry" required>
-                        <br>Color:
-                        <input type="text-area" placeholder="Larry">
-                        <br>Height
-                        <input type="text-area" placeholder="Larry">
-                        <br>Width
-                        <input type="text-area" placeholder="Larry">
-                        <br>Sold
-                        <input type="checkbox" placeholder="Larry">
-                        <br>Amount
-                        <input type="text-area" placeholder="Larry">
-                        <input type="submit">
-
-                        </form>
-                    </div>
+                       {{product.name}}
+                    </div> 
+                    </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -43,6 +27,43 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data() {
+            return {
+                products: [],
+                product: { 
+                    title: '',
+                    description: '',
+                    imageOne: '',
+                    imageTwo: '',
+                    price: '',
+                    id: '',
+                    height: '',
+                    width: '',
+                    color: '',
+                    sold: '',
+                    amount: ''
+                }
+            }
+        },
+
+        created() {
+            this.fetchArticles();
+        },
+
+            methods: {
+        fetchArticles() {
+            axios.get('getproducts')
+                // .then(res => res.json)
+                .then(res => {
+                    this.products = res.data.data
+                }).catch(err => {
+                    console.log(err)
+                })
         }
     }
+
+    }
+
+
 </script>

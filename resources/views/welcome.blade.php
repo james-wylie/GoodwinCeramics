@@ -91,8 +91,14 @@
                     <a href="/contact">Contact</a>
                     <a href="/shipping-and-info">Shipping and Info</a>
                 </div>
-               
+               <div id="app">
+               <div class="container">
+               <login></login>
+               <products-list></products-list>
+               </div>
+               </div>
             </div>
         </div>
+        <script src="../js/app.js"></script>
     </body>
 </html>

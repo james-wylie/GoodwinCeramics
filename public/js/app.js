@@ -1990,25 +1990,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      products: [],
+      product: {
+        title: '',
+        description: '',
+        imageOne: '',
+        imageTwo: '',
+        price: '',
+        id: '',
+        height: '',
+        width: '',
+        color: '',
+        sold: '',
+        amount: ''
+      }
+    };
+  },
+  created: function created() {
+    this.fetchArticles();
+  },
+  methods: {
+    fetchArticles: function fetchArticles() {
+      var _this = this;
+
+      axios.get('getproducts') // .then(res => res.json)
+      .then(function (res) {
+        _this.products = res.data.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
   }
 });
 
@@ -37492,95 +37509,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Product List")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-header" }, [_vm._v("Product List")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v("\n                    Products\n                    "),
-              _c("form", [
-                _c("br"),
-                _vm._v("Title: \n                    "),
-                _c("input", {
-                  attrs: { type: "text", placeholder: "Larry", required: "" }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Description: \n                    "),
-                _c("input", {
-                  attrs: {
-                    type: "text-area",
-                    placeholder: "Larry",
-                    required: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Image One: \n                    "),
-                _c("input", {
-                  attrs: { type: "url", placeholder: "Larry", required: "" }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Image Two:\n                    "),
-                _c("input", { attrs: { type: "url", placeholder: "Larry" } }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Price:\n                    "),
-                _c("input", {
-                  attrs: { type: "number", placeholder: "Larry", required: "" }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Color:\n                    "),
-                _c("input", {
-                  attrs: { type: "text-area", placeholder: "Larry" }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Height\n                    "),
-                _c("input", {
-                  attrs: { type: "text-area", placeholder: "Larry" }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Width\n                    "),
-                _c("input", {
-                  attrs: { type: "text-area", placeholder: "Larry" }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Sold\n                    "),
-                _c("input", {
-                  attrs: { type: "checkbox", placeholder: "Larry" }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v("Amount\n                    "),
-                _c("input", {
-                  attrs: { type: "text-area", placeholder: "Larry" }
-                }),
-                _vm._v(" "),
-                _c("input", { attrs: { type: "submit" } })
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._v("\n                Hello USERNAME HERE\n                "),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Product List")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm._v("\n                        SPACE!\n                    ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Product List")]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { attrs: { id: "productList" } },
+            _vm._l(_vm.products, function(product) {
+              return _c("li", { key: product.name }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _vm._v(
+                    "\n                   " +
+                      _vm._s(product.name) +
+                      "\n                "
+                  )
+                ])
               ])
-            ])
-          ])
+            }),
+            0
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
