@@ -20,4 +20,6 @@
         </div>
     </div>
 </div>
+<login></login>
+<products-list></products-list>
 @endsection
