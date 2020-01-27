@@ -2,19 +2,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    Hello USERNAME HERE
-                    <div class="card-header">Product List</div>
-                        <div class="card-body">
-                            SPACE!
-                        </div>
-
-                    <div class="card-header">Product List</div>
-                        <ul id="productList">
-                    <li v-for="product in products" :key="product.name">
-                    <div class="card-body">
-                       {{product.name}}
-                    </div> 
+                    <div class="">Product List</div>
+                        <ul id="productList list-group">
+                            <li class="list-group-item">
+                                 <button class="btn btn-success ml-5">Add New Product</button>
+                            </li>
+                            
+                            <li class="list-group-item" v-for="product in products" :key="product.id">
+                            <a :href="product.id">
+                                {{product.name}}</a> 
+                                <!-- Below buttons need real V-Bind -->
+                                    <a :href="product.id"><button  class="btn btn-info ml-5">Edit</button></a> 
+                                    <a :href="product.id"><button class="btn btn-danger">Delete</button></a> 
+                    
                     </li>
                     </ul>
                 </div>
