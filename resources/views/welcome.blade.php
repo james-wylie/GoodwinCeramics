@@ -93,9 +93,8 @@
                     <a href="/shipping-and-info">Shipping and Info</a>
                 </div>
                <div id="app">
-               <div class="container">
+                    <backend></backend>
                     <router-view></router-view>
-               </div>
                </div>
             </div>
         </div>

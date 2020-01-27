@@ -11,9 +11,11 @@
                             <li class="list-group-item" v-for="product in products" :key="product.id">
                             <a :href="product.id">
                                 {{product.name}}</a> 
+                                
                                 <!-- Below buttons need real V-Bind -->
                                     <a :href="product.id"><button  class="btn btn-info ml-5">Edit</button></a> 
-                                    <a :href="product.id"><button class="btn btn-danger">Delete</button></a> 
+                                    <a :href="product.id"><button class="btn btn-danger">Delete</button></a>
+                                    <img :src="product.image-one" alt=""> 
                     
                     </li>
                     </ul>

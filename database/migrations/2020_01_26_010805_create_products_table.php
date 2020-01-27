@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('height');
             $table->integer('width');
-            $table->string('image-one');
-            $table->string('image-two');
+            $table->string('imageOne');
+            $table->string('imageTwo');
             $table->integer('price');
             $table->string('color');
             $table->boolean('sold');

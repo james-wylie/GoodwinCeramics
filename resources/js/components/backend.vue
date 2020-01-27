@@ -1,12 +1,14 @@
 <template>
+<div>
+<router-link to="/addproduct">
 
+<a>add new product</a></router-link>
 
-<router-link to="/addproduct"><a>url to example</a></router-link>
+<router-link to="/products-list">
 
-<!-- <div>
-<products-list></products-list>
-</div> -->
+<a>products list</a></router-link>
 
+</div>
 </template>
 
 <script>

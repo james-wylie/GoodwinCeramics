@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import backend from './components/backend.vue'
 
 import { routes } from './routes'
 
@@ -21,5 +22,6 @@ Vue.component('products-list', require('./components/products-list.vue').default
 
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });
