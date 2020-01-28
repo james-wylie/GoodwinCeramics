@@ -2080,12 +2080,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -37935,16 +37929,16 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            " + _vm._s(product.name)
-                      )
+                        "\n                            " +
+                          _vm._s(product.name) +
+                          "\n                            \n                            "
+                      ),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "btn btn-info ml-5" }, [
+                        _vm._v("Edit")
+                      ])
                     ]
                   ),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: product.id } }, [
-                    _c("button", { staticClass: "btn btn-info ml-5" }, [
-                      _vm._v("Edit")
-                    ])
-                  ]),
                   _vm._v(" "),
                   _c("a", { attrs: { href: product.id } }, [
                     _c("button", { staticClass: "btn btn-danger" }, [

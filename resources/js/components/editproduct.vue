@@ -38,7 +38,6 @@
                         </form>
 
 
-                        <!-- Here I bring in the information about the product in the same manner that would be shown on the webpage. -->
                     </div>
                 </div>
                 <div class="card">
@@ -70,11 +69,6 @@
                         <p> {{product.color}}</p>
                         <br>Amount
                         <p>{{product.price}}</p>
-                
-
-                        </form>
-
-
                         <!-- Here I bring in the information about the product in the same manner that would be shown on the webpage. -->
                     </div>
                 </div>

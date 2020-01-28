@@ -16,3 +16,6 @@ Route::get('/vue/{vue_capture}', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/getproducts', 'ProductController@index');
 Route::get('/editproducts/{product}', 'ProductController@show')->name('{product}');
+Route::patch('/editproducts/{product}/edit', 'ProductController@show')->name('profile.edit');
+Route::post('/addproduct', 'ProductController@store')->name('addNewProduct');
+

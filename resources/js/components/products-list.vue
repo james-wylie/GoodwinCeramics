@@ -10,12 +10,12 @@
                             
                             <li class="list-group-item" v-for="product in products" :key="product.id">
                             <router-link :to="{name: 'editProduct', params: { id: product.id }}">
-                                {{product.name}}</router-link> 
+                                {{product.name}}
                                 
                                 <!-- Below buttons need real V-Bind -->
-                                    <a :href="product.id"><button  class="btn btn-info ml-5">Edit</button></a> 
+                                    <button  class="btn btn-info ml-5">Edit</button></router-link>  
                                     <a :href="product.id"><button class="btn btn-danger">Delete</button></a>
-                                    <!-- <img :src="product.imageOne" alt="Wrong">  -->
+                                   
                     
                     </li>
                     </ul>
