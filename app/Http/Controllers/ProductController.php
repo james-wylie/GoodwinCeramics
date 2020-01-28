@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -32,23 +33,34 @@ class ProductController extends Controller
             'price' => 'required',
             'imageOne' => ['required', 'image'],
             'imageTwo' => ['image'],
+            'height' => '',
+            'width' => '',
+            'price' => '',
+            'color' => '',
+            'sold' => boolean
         ]);
 
-        $imagePath = request('image')->store('uploads', 'public');
+        $imagePath = request('imageOne')->store('uploads', 'public');
+        $imagePath2 = request('imageTwo')->store('uploads', 'public');
 
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
         // The above section is an image middleware which automatically resizes the original image to a square to fit the Instagram model. 
         $image->save();
 
-        auth()->user()->posts()->create([
-            // 
-            'caption' => $data['caption'],
-            'image' => $imagePath,
+        products()->create([
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'price' => $data['price'],
+            'imageOne' => $imagePath,
+            'imageTwo' => $imagePath2,
+            'height' => $data['height'],
+            'width' => $data['width'],
+            'color' => $data['color'],
+            'sold' => $data['sold']
         ]);
 
 
         // dd(request()->all());
-        return redirect('/profile/' . auth()->user()->id);
-        // redirects to user profile id
+        return redirect('/'); 
     }
 }
