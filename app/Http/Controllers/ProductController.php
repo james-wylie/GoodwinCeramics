@@ -27,37 +27,27 @@ class ProductController extends Controller
 
     public function store()
     {  
+        // dd(request()->all());
+
         $data = request()->validate([
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required',
-            'imageOne' => ['required', 'image'],
-            'imageTwo' => ['image'],
+            'imageOne' => 'required',
+            'imageTwo' => '',
+            'price' => '',
             'height' => '',
             'width' => '',
-            'price' => '',
             'color' => '',
-            'sold' => boolean
-        ]);
+            'sold' => '',
+            ]);
 
-        $imagePath = request('imageOne')->store('uploads', 'public');
-        $imagePath2 = request('imageTwo')->store('uploads', 'public');
+        // $imagePath = request('imageOne')->store('uploads', 'public');
+        // $imagePath2 = request('imageTwo')->store('uploads', 'public');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
-        // The above section is an image middleware which automatically resizes the original image to a square to fit the Instagram model. 
-        $image->save();
-
-        products()->create([
-            'name' => $data['name'],
-            'description' => $data['description'],
-            'price' => $data['price'],
-            'imageOne' => $imagePath,
-            'imageTwo' => $imagePath2,
-            'height' => $data['height'],
-            'width' => $data['width'],
-            'color' => $data['color'],
-            'sold' => $data['sold']
-        ]);
+        // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
+        // // The above section is an image middleware which automatically resizes the original image to a square to fit the Instagram model. 
+        // $image->save();
+        Product::create($data);
 
 
         // dd(request()->all());

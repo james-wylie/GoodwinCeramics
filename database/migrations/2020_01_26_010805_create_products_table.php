@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('height');
             $table->integer('width');
-            $table->string('imageOne');
+            $table->string('imageOine');
             $table->string('imageTwo');
             $table->integer('price');
             $table->string('color');

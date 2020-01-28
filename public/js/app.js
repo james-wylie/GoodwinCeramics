@@ -1948,9 +1948,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  },
+  created: function created() {},
+  data: function data() {
+    return {
+      body: {
+        name: '',
+        description: '',
+        imageOne: '',
+        imageTwo: '',
+        price: '',
+        height: '',
+        width: '',
+        color: '',
+        sold: ''
+      },
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    };
+  },
+  methods: {
+    postProduct: function postProduct() {
+      axios.post('create', {
+        name: this.body.name,
+        description: this.body.description,
+        imageOne: this.body.imageOne,
+        imageTwo: this.body.imageTwo,
+        price: this.body.price,
+        height: this.body.height,
+        width: this.body.width,
+        color: this.body.color,
+        sold: this.body.sold
+      } //  ,{
+      //     headers: {
+      //         'Content-type': 'multipart/form-data',
+      //     },
+      // }
+      ).then(function (res) {
+        console.log(res.data);
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    }
   }
 });
 
@@ -37567,7 +37611,255 @@ var render = function() {
               _c("a", [_vm._v("Back to the Backend Home")])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("div", { staticClass: "card-body" }, [
+              _vm._v("\n                    Products\n                    "),
+              _c(
+                "form",
+                {
+                  attrs: { method: "post" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.postProduct($event)
+                    }
+                  }
+                },
+                [
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Name: \n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.name,
+                        expression: "body.name"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "Name", required: "" },
+                    domProps: { value: _vm.body.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Description: \n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.description,
+                        expression: "body.description"
+                      }
+                    ],
+                    attrs: {
+                      type: "text-area",
+                      placeholder: "Description",
+                      required: ""
+                    },
+                    domProps: { value: _vm.body.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "description", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Image One: \n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.imageOne,
+                        expression: "body.imageOne"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      value: "http://googel.com",
+                      required: ""
+                    },
+                    domProps: { value: _vm.body.imageOne },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "imageOne", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Image Two:\n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.imageTwo,
+                        expression: "body.imageTwo"
+                      }
+                    ],
+                    attrs: { type: "text", value: "http://googel.com" },
+                    domProps: { value: _vm.body.imageTwo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "imageTwo", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Price:\n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.price,
+                        expression: "body.price"
+                      }
+                    ],
+                    attrs: {
+                      type: "number",
+                      placeholder: "price",
+                      required: ""
+                    },
+                    domProps: { value: _vm.body.price },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "price", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Color:\n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.color,
+                        expression: "body.color"
+                      }
+                    ],
+                    attrs: { type: "text-area", placeholder: "Color" },
+                    domProps: { value: _vm.body.color },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "color", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Height\n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.height,
+                        expression: "body.height"
+                      }
+                    ],
+                    attrs: { type: "number", placeholder: "Height (in cm)" },
+                    domProps: { value: _vm.body.height },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "height", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Width\n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.width,
+                        expression: "body.width"
+                      }
+                    ],
+                    attrs: { type: "number", placeholder: "Width (in cm)" },
+                    domProps: { value: _vm.body.width },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "width", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v("Sold\n                    "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body.width,
+                        expression: "body.width"
+                      }
+                    ],
+                    attrs: {
+                      type: "number",
+                      placeholder: "Sold (check yes if unavailable)"
+                    },
+                    domProps: { value: _vm.body.width },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.body, "width", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("button", { attrs: { type: "submit", name: "button" } }, [
+                    _vm._v("Submit")
+                  ])
+                ]
+              )
+            ])
           ],
           1
         )
@@ -37575,78 +37867,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _vm._v("\n                    Products\n                    "),
-      _c("form", [
-        _c("br"),
-        _vm._v("Title: \n                    "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Title", required: "" }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Description: \n                    "),
-        _c("input", {
-          attrs: { type: "text-area", placeholder: "Description", required: "" }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Image One: \n                    "),
-        _c("input", {
-          attrs: { type: "url", placeholder: "Image One (url)", required: "" }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Image Two:\n                    "),
-        _c("input", { attrs: { type: "url", placeholder: "Image Two (url)" } }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Price:\n                    "),
-        _c("input", {
-          attrs: { type: "number", placeholder: "Number", required: "" }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Color:\n                    "),
-        _c("input", { attrs: { type: "text-area", placeholder: "Color" } }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Height\n                    "),
-        _c("input", {
-          attrs: { type: "number", placeholder: "Height (in cm)" }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Width\n                    "),
-        _c("input", {
-          attrs: { type: "number", placeholder: "Width (in cm)" }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Sold\n                    "),
-        _c("input", {
-          attrs: {
-            type: "checkbox",
-            placeholder: "Sold (check yes if unavailable)"
-          }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v("Amount\n                    "),
-        _c("input", {
-          attrs: { type: "text-area", placeholder: "Cost in NZD" }
-        }),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "submit" } })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
