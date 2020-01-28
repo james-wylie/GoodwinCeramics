@@ -14,8 +14,13 @@ class ProductController extends Controller
 
     public function index()
     {
-        $posts = Product::paginate(5);
+        $products = Product::paginate(5);
     
-        return $posts;
+        return $products;
+    }
+
+    public function show(\App\Product $product)
+    {
+        return $product;
     }
 }

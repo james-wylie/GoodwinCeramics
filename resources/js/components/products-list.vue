@@ -5,17 +5,17 @@
                     <div class="">Product List</div>
                         <ul id="productList list-group">
                             <li class="list-group-item">
-                                 <button class="btn btn-success ml-5">Add New Product</button>
+                                 <router-link to="/addproduct"><button class="btn btn-success ml-5">Add New Product</button></router-link>
                             </li>
                             
                             <li class="list-group-item" v-for="product in products" :key="product.id">
-                            <a :href="product.id">
-                                {{product.name}}</a> 
+                            <router-link :to="{name: 'editProduct', params: { id: product.id }}">
+                                {{product.name}}</router-link> 
                                 
                                 <!-- Below buttons need real V-Bind -->
                                     <a :href="product.id"><button  class="btn btn-info ml-5">Edit</button></a> 
                                     <a :href="product.id"><button class="btn btn-danger">Delete</button></a>
-                                    <img :src="product.image-one" alt=""> 
+                                    <!-- <img :src="product.imageOne" alt="Wrong">  -->
                     
                     </li>
                     </ul>

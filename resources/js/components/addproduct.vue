@@ -9,25 +9,25 @@
                         Products
                         <form>
                         <br>Title: 
-                        <input type="text" placeholder="Larry" required>
+                        <input type="text" placeholder="Title" required>
                         <br>Description: 
-                        <input type="text-area" placeholder="Larry" required>
+                        <input type="text-area" placeholder="Description" required>
                         <br>Image One: 
-                        <input type="url" placeholder="Larry" required>
+                        <input type="url" placeholder="Image One (url)" required>
                         <br>Image Two:
-                        <input type="url" placeholder="Larry">
+                        <input type="url" placeholder="Image Two (url)">
                         <br>Price:
-                        <input type="number" placeholder="Larry" required>
+                        <input type="number" placeholder="Number" required>
                         <br>Color:
-                        <input type="text-area" placeholder="Larry">
+                        <input type="text-area" placeholder="Color">
                         <br>Height
-                        <input type="text-area" placeholder="Larry">
+                        <input type="number" placeholder="Height (in cm)">
                         <br>Width
-                        <input type="text-area" placeholder="Larry">
+                        <input type="number" placeholder="Width (in cm)">
                         <br>Sold
-                        <input type="checkbox" placeholder="Larry">
+                        <input type="checkbox" placeholder="Sold (check yes if unavailable)">
                         <br>Amount
-                        <input type="text-area" placeholder="Larry">
+                        <input type="text-area" placeholder="Cost in NZD">
                         <input type="submit">
 
                         </form>

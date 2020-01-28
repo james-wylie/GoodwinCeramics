@@ -1978,6 +1978,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2040,9 +2041,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      products: [],
+      product: {
+        title: '',
+        description: '',
+        imageOne: '',
+        imageTwo: '',
+        price: '',
+        id: '',
+        height: '',
+        width: '',
+        color: '',
+        sold: '',
+        amount: ''
+      }
+    };
+  },
+  created: function created() {
+    this.fetchArticles();
+  },
+  methods: {
+    fetchArticles: function fetchArticles() {
+      var _this = this;
+
+      axios.get('1').then(function (res) {
+        _this.products = res.data;
+      }).then(function (res) {
+        console.log(_this.products);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
   }
 });
 
@@ -37527,50 +37565,61 @@ var staticRenderFns = [
         _c("br"),
         _vm._v("Title: \n                    "),
         _c("input", {
-          attrs: { type: "text", placeholder: "Larry", required: "" }
+          attrs: { type: "text", placeholder: "Title", required: "" }
         }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Description: \n                    "),
         _c("input", {
-          attrs: { type: "text-area", placeholder: "Larry", required: "" }
+          attrs: { type: "text-area", placeholder: "Description", required: "" }
         }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Image One: \n                    "),
         _c("input", {
-          attrs: { type: "url", placeholder: "Larry", required: "" }
+          attrs: { type: "url", placeholder: "Image One (url)", required: "" }
         }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Image Two:\n                    "),
-        _c("input", { attrs: { type: "url", placeholder: "Larry" } }),
+        _c("input", { attrs: { type: "url", placeholder: "Image Two (url)" } }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Price:\n                    "),
         _c("input", {
-          attrs: { type: "number", placeholder: "Larry", required: "" }
+          attrs: { type: "number", placeholder: "Number", required: "" }
         }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Color:\n                    "),
-        _c("input", { attrs: { type: "text-area", placeholder: "Larry" } }),
+        _c("input", { attrs: { type: "text-area", placeholder: "Color" } }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Height\n                    "),
-        _c("input", { attrs: { type: "text-area", placeholder: "Larry" } }),
+        _c("input", {
+          attrs: { type: "number", placeholder: "Height (in cm)" }
+        }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Width\n                    "),
-        _c("input", { attrs: { type: "text-area", placeholder: "Larry" } }),
+        _c("input", {
+          attrs: { type: "number", placeholder: "Width (in cm)" }
+        }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Sold\n                    "),
-        _c("input", { attrs: { type: "checkbox", placeholder: "Larry" } }),
+        _c("input", {
+          attrs: {
+            type: "checkbox",
+            placeholder: "Sold (check yes if unavailable)"
+          }
+        }),
         _vm._v(" "),
         _c("br"),
         _vm._v("Amount\n                    "),
-        _c("input", { attrs: { type: "text-area", placeholder: "Larry" } }),
+        _c("input", {
+          attrs: { type: "text-area", placeholder: "Cost in NZD" }
+        }),
         _vm._v(" "),
         _c("input", { attrs: { type: "submit" } })
       ])
@@ -37634,7 +37683,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm._v("\n                    Products\n                    "),
+            _c("form", [
+              _c("br"),
+              _vm._v("Title: \n                    "),
+              _c("input", {
+                attrs: {
+                  type: "text",
+                  placeholder: _vm.products.name,
+                  required: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Description: \n                    "),
+              _c("input", {
+                attrs: {
+                  type: "text-area",
+                  placeholder: _vm.product.description,
+                  required: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Image One: \n                    "),
+              _c("input", {
+                attrs: {
+                  type: "url",
+                  placeholder: _vm.product.imageOne,
+                  required: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Image Two:\n                    "),
+              _c("input", { attrs: { type: "url", placeholder: "Larry" } }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Price:\n                    "),
+              _c("input", {
+                attrs: { type: "number", placeholder: "Larry", required: "" }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Color:\n                    "),
+              _c("input", {
+                attrs: { type: "text-area", placeholder: "Larry" }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Height\n                    "),
+              _c("input", {
+                attrs: { type: "text-area", placeholder: "Larry" }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Width\n                    "),
+              _c("input", {
+                attrs: { type: "text-area", placeholder: "Larry" }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Sold\n                    "),
+              _c("input", {
+                attrs: { type: "checkbox", placeholder: "Larry" }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Amount\n                    "),
+              _c("input", {
+                attrs: { type: "text-area", placeholder: "Larry" }
+              }),
+              _vm._v(" "),
+              _c("input", { attrs: { type: "submit" } })
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37667,18 +37801,37 @@ var render = function() {
           "ul",
           { attrs: { id: "productList list-group" } },
           [
-            _vm._m(0),
+            _c(
+              "li",
+              { staticClass: "list-group-item" },
+              [
+                _c("router-link", { attrs: { to: "/addproduct" } }, [
+                  _c("button", { staticClass: "btn btn-success ml-5" }, [
+                    _vm._v("Add New Product")
+                  ])
+                ])
+              ],
+              1
+            ),
             _vm._v(" "),
             _vm._l(_vm.products, function(product) {
               return _c(
                 "li",
                 { key: product.id, staticClass: "list-group-item" },
                 [
-                  _c("a", { attrs: { href: product.id } }, [
-                    _vm._v(
-                      "\n                            " + _vm._s(product.name)
-                    )
-                  ]),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "editProduct", params: { id: product.id } }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            " + _vm._s(product.name)
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("a", { attrs: { href: product.id } }, [
                     _c("button", { staticClass: "btn btn-info ml-5" }, [
@@ -37690,12 +37843,9 @@ var render = function() {
                     _c("button", { staticClass: "btn btn-danger" }, [
                       _vm._v("Delete")
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    attrs: { src: product.image - _vm.one, alt: "" }
-                  })
-                ]
+                  ])
+                ],
+                1
               )
             })
           ],
@@ -37705,18 +37855,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item" }, [
-      _c("button", { staticClass: "btn btn-success ml-5" }, [
-        _vm._v("Add New Product")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -53187,15 +53326,15 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: '/backend',
   component: _components_backend__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: 'backendRoute'
+  name: 'backend'
 }, {
-  path: '/editproduct',
+  path: '/editproducts/:id',
   component: _components_editproduct__WEBPACK_IMPORTED_MODULE_0__["default"],
-  name: 'editProductRoute'
+  name: 'editProduct'
 }, {
   path: '/addproduct',
   component: _components_addproduct__WEBPACK_IMPORTED_MODULE_1__["default"],
-  name: 'addProductRoute'
+  name: 'addProduct'
 }, {
   path: '/products-list',
   component: _components_products_list__WEBPACK_IMPORTED_MODULE_2__["default"],
