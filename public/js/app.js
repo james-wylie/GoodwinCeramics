@@ -2044,26 +2044,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   data: function data() {
     return {
-      products: [],
-      product: {
-        title: '',
-        description: '',
-        imageOne: '',
-        imageTwo: '',
-        price: '',
-        id: '',
-        height: '',
-        width: '',
-        color: '',
-        sold: '',
-        amount: ''
-      }
+      product: []
     };
   },
   created: function created() {
@@ -2073,10 +2102,8 @@ __webpack_require__.r(__webpack_exports__);
     fetchArticles: function fetchArticles() {
       var _this = this;
 
-      axios.get('1').then(function (res) {
-        _this.products = res.data;
-      }).then(function (res) {
-        console.log(_this.products);
+      axios.get(this.$route.params.id).then(function (res) {
+        _this.product = res.data;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -37693,11 +37720,21 @@ var render = function() {
             _vm._v("\n                    Products\n                    "),
             _c("form", [
               _c("br"),
+              _c("p", [
+                _vm._v("Date Created: " + _vm._s(_vm.product.created_at))
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _c("p", [
+                _vm._v("Date Update: " + _vm._s(_vm.product.updated_at))
+              ]),
+              _vm._v(" "),
+              _c("br"),
               _vm._v("Title: \n                    "),
               _c("input", {
                 attrs: {
                   type: "text",
-                  placeholder: _vm.products.name,
+                  placeholder: _vm.product.name,
                   required: ""
                 }
               }),
@@ -37724,46 +37761,116 @@ var render = function() {
               _vm._v(" "),
               _c("br"),
               _vm._v("Image Two:\n                    "),
-              _c("input", { attrs: { type: "url", placeholder: "Larry" } }),
+              _c("input", {
+                attrs: { type: "url", placeholder: _vm.product.imageOne }
+              }),
               _vm._v(" "),
               _c("br"),
               _vm._v("Price:\n                    "),
               _c("input", {
-                attrs: { type: "number", placeholder: "Larry", required: "" }
+                attrs: {
+                  type: "number",
+                  placeholder: _vm.product.price,
+                  required: ""
+                }
               }),
               _vm._v(" "),
               _c("br"),
               _vm._v("Color:\n                    "),
               _c("input", {
-                attrs: { type: "text-area", placeholder: "Larry" }
+                attrs: { type: "text-area", placeholder: _vm.product.imageOne }
               }),
               _vm._v(" "),
               _c("br"),
               _vm._v("Height\n                    "),
               _c("input", {
-                attrs: { type: "text-area", placeholder: "Larry" }
+                attrs: { type: "text-area", placeholder: _vm.product.imageOne }
               }),
               _vm._v(" "),
               _c("br"),
               _vm._v("Width\n                    "),
               _c("input", {
-                attrs: { type: "text-area", placeholder: "Larry" }
+                attrs: { type: "text-area", placeholder: _vm.product.imageTwo }
               }),
               _vm._v(" "),
               _c("br"),
               _vm._v("Sold\n                    "),
               _c("input", {
-                attrs: { type: "checkbox", placeholder: "Larry" }
+                attrs: { type: "checkbox", placeholder: _vm.product.sold }
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("Color\n                    "),
+              _c("input", {
+                attrs: { type: "textarea", placeholder: _vm.product.color }
               }),
               _vm._v(" "),
               _c("br"),
               _vm._v("Amount\n                    "),
               _c("input", {
-                attrs: { type: "text-area", placeholder: "Larry" }
+                attrs: { type: "text-area", placeholder: _vm.product.price }
               }),
               _vm._v(" "),
               _c("input", { attrs: { type: "submit" } })
             ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Product")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("br"),
+            _c("p", [
+              _vm._v("Date Created: " + _vm._s(_vm.product.created_at))
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _c("p", [_vm._v("Date Update: " + _vm._s(_vm.product.updated_at))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Title: \n                    "),
+            _c("p", [_vm._v(_vm._s(_vm.product.name))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Description: \n                    "),
+            _c("p", [_vm._v(" " + _vm._s(_vm.product.description))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Image One: \n                    "),
+            _c("img", { attrs: { src: _vm.product.imageOne, alt: "" } }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Image Two:\n                    "),
+            _c("img", { attrs: { src: _vm.product.imageTwo, alt: "" } }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Price:\n                    "),
+            _c("p", [_vm._v(" " + _vm._s(_vm.product.price))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Color:\n                    "),
+            _c("p", [_vm._v(" " + _vm._s(_vm.product.color))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Height\n                    "),
+            _c("p", [_vm._v(" " + _vm._s(_vm.product.height))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Width\n                    "),
+            _c("p", [_vm._v(" " + _vm._s(_vm.product.width))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Sold\n                    "),
+            _c("p", [_vm._v(" " + _vm._s(_vm.product.sold))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Color\n                    "),
+            _c("p", [_vm._v(" " + _vm._s(_vm.product.color))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("Amount\n                    "),
+            _c("p", [_vm._v(_vm._s(_vm.product.price))])
           ])
         ])
       ])
