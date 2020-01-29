@@ -1958,7 +1958,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {},
   data: function data() {
     return {
-      body: {
+      productData: {
         name: '',
         description: '',
         imageOne: '',
@@ -1975,19 +1975,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     postProduct: function postProduct() {
       axios.post('create', {
-        name: this.body.name,
-        description: this.body.description,
-        imageOne: this.body.imageOne,
-        imageTwo: this.body.imageTwo,
-        price: this.body.price,
-        height: this.body.height,
-        width: this.body.width,
-        color: this.body.color,
-        sold: this.body.sold
-      } //  ,{
-      //     headers: {
-      //         'Content-type': 'multipart/form-data',
-      //     },
+        body: this.productData
+      } // {
+      //         name: this.body.name,
+      //         description: this.body.description,
+      //         imageOne: this.body.imageOne,
+      //         imageTwo: this.body.imageTwo,
+      //         price: this.body.price,
+      //         height: this.body.height,
+      //         width: this.body.width,
+      //         color: this.body.color,
+      //         sold: this.body.sold
       // }
       ).then(function (res) {
         console.log(res.data);
@@ -37637,18 +37635,23 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.name,
-                        expression: "body.name"
+                        value: _vm.productData.name,
+                        expression: "productData.name"
                       }
                     ],
-                    attrs: { type: "text", placeholder: "Name", required: "" },
-                    domProps: { value: _vm.body.name },
+                    attrs: {
+                      type: "text",
+                      name: "name",
+                      placeholder: "Name",
+                      required: ""
+                    },
+                    domProps: { value: _vm.productData.name },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "name", $event.target.value)
+                        _vm.$set(_vm.productData, "name", $event.target.value)
                       }
                     }
                   }),
@@ -37660,22 +37663,27 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.description,
-                        expression: "body.description"
+                        value: _vm.productData.description,
+                        expression: "productData.description"
                       }
                     ],
                     attrs: {
                       type: "text-area",
+                      name: "description",
                       placeholder: "Description",
                       required: ""
                     },
-                    domProps: { value: _vm.body.description },
+                    domProps: { value: _vm.productData.description },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "description", $event.target.value)
+                        _vm.$set(
+                          _vm.productData,
+                          "description",
+                          $event.target.value
+                        )
                       }
                     }
                   }),
@@ -37687,22 +37695,27 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.imageOne,
-                        expression: "body.imageOne"
+                        value: _vm.productData.imageOne,
+                        expression: "productData.imageOne"
                       }
                     ],
                     attrs: {
                       type: "text",
+                      name: "imageOne",
                       value: "http://googel.com",
                       required: ""
                     },
-                    domProps: { value: _vm.body.imageOne },
+                    domProps: { value: _vm.productData.imageOne },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "imageOne", $event.target.value)
+                        _vm.$set(
+                          _vm.productData,
+                          "imageOne",
+                          $event.target.value
+                        )
                       }
                     }
                   }),
@@ -37714,18 +37727,26 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.imageTwo,
-                        expression: "body.imageTwo"
+                        value: _vm.productData.imageTwo,
+                        expression: "productData.imageTwo"
                       }
                     ],
-                    attrs: { type: "text", value: "http://googel.com" },
-                    domProps: { value: _vm.body.imageTwo },
+                    attrs: {
+                      type: "text",
+                      name: "imageTwo",
+                      value: "http://googel.com"
+                    },
+                    domProps: { value: _vm.productData.imageTwo },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "imageTwo", $event.target.value)
+                        _vm.$set(
+                          _vm.productData,
+                          "imageTwo",
+                          $event.target.value
+                        )
                       }
                     }
                   }),
@@ -37737,22 +37758,23 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.price,
-                        expression: "body.price"
+                        value: _vm.productData.price,
+                        expression: "productData.price"
                       }
                     ],
                     attrs: {
                       type: "number",
+                      name: "price",
                       placeholder: "price",
                       required: ""
                     },
-                    domProps: { value: _vm.body.price },
+                    domProps: { value: _vm.productData.price },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "price", $event.target.value)
+                        _vm.$set(_vm.productData, "price", $event.target.value)
                       }
                     }
                   }),
@@ -37764,18 +37786,22 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.color,
-                        expression: "body.color"
+                        value: _vm.productData.color,
+                        expression: "productData.color"
                       }
                     ],
-                    attrs: { type: "text-area", placeholder: "Color" },
-                    domProps: { value: _vm.body.color },
+                    attrs: {
+                      type: "text-area",
+                      name: "color",
+                      placeholder: "Color"
+                    },
+                    domProps: { value: _vm.productData.color },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "color", $event.target.value)
+                        _vm.$set(_vm.productData, "color", $event.target.value)
                       }
                     }
                   }),
@@ -37787,18 +37813,22 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.height,
-                        expression: "body.height"
+                        value: _vm.productData.height,
+                        expression: "productData.height"
                       }
                     ],
-                    attrs: { type: "number", placeholder: "Height (in cm)" },
-                    domProps: { value: _vm.body.height },
+                    attrs: {
+                      type: "number",
+                      name: "height",
+                      placeholder: "Height (in cm)"
+                    },
+                    domProps: { value: _vm.productData.height },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "height", $event.target.value)
+                        _vm.$set(_vm.productData, "height", $event.target.value)
                       }
                     }
                   }),
@@ -37810,18 +37840,22 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.width,
-                        expression: "body.width"
+                        value: _vm.productData.width,
+                        expression: "productData.width"
                       }
                     ],
-                    attrs: { type: "number", placeholder: "Width (in cm)" },
-                    domProps: { value: _vm.body.width },
+                    attrs: {
+                      type: "number",
+                      name: "width",
+                      placeholder: "Width (in cm)"
+                    },
+                    domProps: { value: _vm.productData.width },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "width", $event.target.value)
+                        _vm.$set(_vm.productData, "width", $event.target.value)
                       }
                     }
                   }),
@@ -37833,21 +37867,22 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.body.width,
-                        expression: "body.width"
+                        value: _vm.productData.width,
+                        expression: "productData.width"
                       }
                     ],
                     attrs: {
                       type: "number",
+                      name: "sold",
                       placeholder: "Sold (check yes if unavailable)"
                     },
-                    domProps: { value: _vm.body.width },
+                    domProps: { value: _vm.productData.width },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.body, "width", $event.target.value)
+                        _vm.$set(_vm.productData, "width", $event.target.value)
                       }
                     }
                   }),

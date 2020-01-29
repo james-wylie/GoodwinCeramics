@@ -10,23 +10,23 @@
                         <form method="post" @submit.prevent="postProduct">
                             <input type="hidden" name="_token" :value="csrf">
                         <br>Name: 
-                        <input type="text" v-model="body.name" placeholder="Name" required>
+                        <input type="text" name="name" v-model="productData.name" placeholder="Name" required>
                         <br>Description: 
-                        <input type="text-area" v-model="body.description" placeholder="Description" required>
+                        <input type="text-area" name="description" v-model="productData.description" placeholder="Description" required>
                         <br>Image One: 
-                        <input type="text" v-model="body.imageOne" value="http://googel.com" required>
+                        <input type="text" name="imageOne" v-model="productData.imageOne" value="http://googel.com" required>
                         <br>Image Two:
-                        <input type="text" v-model="body.imageTwo" value="http://googel.com">
+                        <input type="text" name="imageTwo" v-model="productData.imageTwo" value="http://googel.com">
                         <br>Price:
-                        <input type="number" v-model="body.price" placeholder="price" required>
+                        <input type="number" name="price" v-model="productData.price" placeholder="price" required>
                         <br>Color:
-                        <input type="text-area" v-model="body.color" placeholder="Color">
+                        <input type="text-area" name="color" v-model="productData.color" placeholder="Color">
                         <br>Height
-                        <input type="number" v-model="body.height" placeholder="Height (in cm)">
+                        <input type="number" name="height" v-model="productData.height" placeholder="Height (in cm)">
                         <br>Width
-                        <input type="number" v-model="body.width" placeholder="Width (in cm)">
+                        <input type="number" name="width" v-model="productData.width" placeholder="Width (in cm)">
                         <br>Sold
-                        <input type="number" v-model="body.width"
+                        <input type="number" name="sold" v-model="productData.width"
                         placeholder="Sold (check yes if unavailable)">
                         <br>
                         <!-- <input type="text-area" v-model="body.amount" 
@@ -51,7 +51,7 @@
         },
         data() {
             return {
-                body: {
+                productData: {
                     name: '',
                     description: '',
                     imageOne: '',
@@ -71,23 +71,17 @@
             methods: {
             postProduct: function() {
           
-            axios.post('create' , 
-            {
-                     name: this.body.name,
-                    description: this.body.description,
-                    imageOne: this.body.imageOne,
-                    imageTwo: this.body.imageTwo,
-                    price: this.body.price,
-                    height: this.body.height,
-                    width: this.body.width,
-                    color: this.body.color,
-                    sold: this.body.sold
-            }
-            //  ,{
-            //     headers: {
-            //         'Content-type': 'multipart/form-data',
-            //     },
-                
+            axios.post('create' , {body: this.productData}
+            // {
+            //         name: this.body.name,
+            //         description: this.body.description,
+            //         imageOne: this.body.imageOne,
+            //         imageTwo: this.body.imageTwo,
+            //         price: this.body.price,
+            //         height: this.body.height,
+            //         width: this.body.width,
+            //         color: this.body.color,
+            //         sold: this.body.sold
             // }
             )
                 .then(res => {

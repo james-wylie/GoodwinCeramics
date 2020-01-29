@@ -27,30 +27,52 @@ class ProductController extends Controller
 
     public function store()
     {  
-        // dd(request()->all());
-
+        
         $data = request()->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'imageOne' => 'required',
-            'imageTwo' => '',
-            'price' => '',
-            'height' => '',
-            'width' => '',
-            'color' => '',
-            'sold' => '',
-            ]);
+            'name'=> 'required',
+            'description'=> 'required',
+            'imageOne'=> 'required',
+            'imageTwo'=>'required',
+            'price'=> 'required',
+            'height'=> 'required',
+            'width'=> 'required',
+            'color'=> 'required',
+            'sold'=> 'required'
+        ]);
+        
+        
+        
+        $product = new Product;   
+        $product-> name = $dat->input('name');
+        $product-> description = $dat->input('description');
+        $product-> imageOne = $dat->input('imageOne');
+        $product-> imageTwo = $dat->input('imageTwo');
+        $product-> price = $dat->input('price');
+        $product-> height = $dat->input('height');
+        $product-> width = $dat->input('width');
+        $product-> color = $dat->input('color');
+        $product-> sold = $dat->input('sold');
 
-        // $imagePath = request('imageOne')->store('uploads', 'public');
-        // $imagePath2 = request('imageTwo')->store('uploads', 'public');
+        $product-> save();
 
-        // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
-        // // The above section is an image middleware which automatically resizes the original image to a square to fit the Instagram model. 
-        // $image->save();
-        Product::create($data);
-
-
-        // dd(request()->all());
-        return redirect('/'); 
+ 
+        return redirect('/');
     }
-}
+
+        // $data = request()->validate([
+        //     'name' => 'required',
+        //     'description' => 'required',
+        //     'imageOne' => 'required',
+        //     'imageTwo' => '',
+        //     'price' => '',
+        //     'height' => '',
+        //     'width' => '',
+        //     'color' => '',
+        //     'sold' => '',
+        //     ]);
+
+        // Product::create($data);
+
+
+        // return redirect('/'); 
+    }
