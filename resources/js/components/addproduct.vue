@@ -26,7 +26,7 @@
                         <br>Width
                         <input type="number" name="width" v-model="productData.width" placeholder="Width (in cm)">
                         <br>Sold
-                        <input type="number" name="sold" v-model="productData.width"
+                        <input type="number" name="sold" v-model="productData.sold"
                         placeholder="Sold (check yes if unavailable)">
                         <br>
                         <!-- <input type="text-area" v-model="body.amount" 
@@ -71,22 +71,22 @@
             methods: {
             postProduct: function() {
           
-            axios.post('create' , {body: this.productData}
-            // {
-            //         name: this.body.name,
-            //         description: this.body.description,
-            //         imageOne: this.body.imageOne,
-            //         imageTwo: this.body.imageTwo,
-            //         price: this.body.price,
-            //         height: this.body.height,
-            //         width: this.body.width,
-            //         color: this.body.color,
-            //         sold: this.body.sold
-            // }
+            axios.post('create' , 
+            // this.productData
+            {
+                    name: this.productData.name,
+                    description: this.productData.description,
+                    imageOne: this.productData.imageOne,
+                    imageTwo: this.productData.imageTwo,
+                    price: this.productData.price,
+                    height: this.productData.height,
+                    width: this.productData.width,
+                    color: this.productData.color,
+                    sold: this.productData.sold
+            }
             )
-                .then(res => {
-                    console.log(res.data)
-                }).catch(err => {
+                // .then(res => res.config.data)
+                .catch(err => {
                     console.log(err.response.data)
                 })
         }

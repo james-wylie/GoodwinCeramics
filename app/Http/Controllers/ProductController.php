@@ -28,35 +28,39 @@ class ProductController extends Controller
     public function store()
     {  
         
-        $data = request()->validate([
-            'name'=> 'required',
-            'description'=> 'required',
-            'imageOne'=> 'required',
-            'imageTwo'=>'required',
-            'price'=> 'required',
-            'height'=> 'required',
-            'width'=> 'required',
-            'color'=> 'required',
-            'sold'=> 'required'
-        ]);
+        // $data = request()->all();
+    
+       
+
+        // $data->validate([
+        //     'name'=> 'required',
+        //     'description'=> 'required',
+        //     'imageOne'=> 'required',
+        //     'imageTwo'=>'required',
+        //     'price'=> 'required',
+        //     'height'=> 'required',
+        //     'width'=> 'required',
+        //     'color'=> 'required',
+        //     'sold'=> 'required'
+        // ]);
         
         
-        
-        $product = new Product;   
-        $product-> name = $dat->input('name');
-        $product-> description = $dat->input('description');
-        $product-> imageOne = $dat->input('imageOne');
-        $product-> imageTwo = $dat->input('imageTwo');
-        $product-> price = $dat->input('price');
-        $product-> height = $dat->input('height');
-        $product-> width = $dat->input('width');
-        $product-> color = $dat->input('color');
-        $product-> sold = $dat->input('sold');
+        $product = new Product;  
+         
+        $product-> name = request('name');
+        $product-> description = request()->input('description');
+        $product-> imageOne = request()->input('imageOne');
+        $product-> imageTwo = request()->input('imageTwo');
+        $product-> price = request()->input('price');
+        $product-> height = request()->input('height');
+        $product-> width = request()->input('width');
+        $product-> color = request()->input('color');
+        $product-> sold = request()->input('sold');
 
         $product-> save();
 
  
-        return redirect('/');
+        return redirect('/products-list');
     }
 
         // $data = request()->validate([

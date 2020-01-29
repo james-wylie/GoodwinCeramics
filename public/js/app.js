@@ -1974,22 +1974,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     postProduct: function postProduct() {
-      axios.post('create', {
-        body: this.productData
-      } // {
-      //         name: this.body.name,
-      //         description: this.body.description,
-      //         imageOne: this.body.imageOne,
-      //         imageTwo: this.body.imageTwo,
-      //         price: this.body.price,
-      //         height: this.body.height,
-      //         width: this.body.width,
-      //         color: this.body.color,
-      //         sold: this.body.sold
-      // }
-      ).then(function (res) {
-        console.log(res.data);
-      })["catch"](function (err) {
+      axios.post('create', // this.productData
+      {
+        name: this.productData.name,
+        description: this.productData.description,
+        imageOne: this.productData.imageOne,
+        imageTwo: this.productData.imageTwo,
+        price: this.productData.price,
+        height: this.productData.height,
+        width: this.productData.width,
+        color: this.productData.color,
+        sold: this.productData.sold
+      }) // .then(res => res.config.data)
+      ["catch"](function (err) {
         console.log(err.response.data);
       });
     }
@@ -37867,8 +37864,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.productData.width,
-                        expression: "productData.width"
+                        value: _vm.productData.sold,
+                        expression: "productData.sold"
                       }
                     ],
                     attrs: {
@@ -37876,13 +37873,13 @@ var render = function() {
                       name: "sold",
                       placeholder: "Sold (check yes if unavailable)"
                     },
-                    domProps: { value: _vm.productData.width },
+                    domProps: { value: _vm.productData.sold },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.productData, "width", $event.target.value)
+                        _vm.$set(_vm.productData, "sold", $event.target.value)
                       }
                     }
                   }),

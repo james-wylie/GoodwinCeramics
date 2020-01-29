@@ -17,5 +17,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/getproducts', 'ProductController@index');
 Route::get('/editproducts/{product}', 'ProductController@show')->name('{product}');
 Route::patch('/editproducts/{product}/edit', 'ProductController@edit')->name('profile.edit');
-Route::post('/create', 'ProductController@store')->name('addNewProduct');
+Route::post('/create', 'ProductController@store');
 
