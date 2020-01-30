@@ -15,7 +15,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::paginate(5);
+        $products = Product::latest()->paginate(5);
     
         return $products;
     }
@@ -30,8 +30,6 @@ class ProductController extends Controller
         
         // $data = request()->all();
     
-       
-
         // $data->validate([
         //     'name'=> 'required',
         //     'description'=> 'required',
@@ -60,23 +58,49 @@ class ProductController extends Controller
         $product-> save();
 
  
-        return redirect('/products-list');
+        // return redirect()->to('/');
     }
 
-        // $data = request()->validate([
-        //     'name' => 'required',
-        //     'description' => 'required',
-        //     'imageOne' => 'required',
-        //     'imageTwo' => '',
-        //     'price' => '',
-        //     'height' => '',
-        //     'width' => '',
-        //     'color' => '',
-        //     'sold' => '',
-        //     ]);
+    public function destroy($id){
 
-        // Product::create($data);
-
-
-        // return redirect('/'); 
+        $res=Product::where('id', $id)->delete();
+        if ($res){
+          $data=[
+          'status'=>'1',
+          'msg'=>'success'
+        ];
+        }else{
+          $data=[
+          'status'=>'0',
+          'msg'=>'fail'
+        ];
+        // return response()->json($data);
+        return redirect()->to('/');
+    }    
     }
+
+    public function update(){
+        
+        
+        $productId = request('id');
+        // dd($productId);
+        $product = Product::where('id', $productId)->first();  
+         
+        $product->update(request()->all());
+        // Simpler is easier!!!
+
+        // $product-> name = request('name') || $product-> name ;
+        // $product-> description = request('description') || $product-> description;
+        // $product-> imageOne = request()->input('imageOne') || $product-> imageOne;
+        // $product-> imageTwo = request()->input('imageTwo') || $product-> imageTwo;
+        // $product-> price = request()->input('price') || $product-> price;
+        // $product-> height = request()->input('height') || $product-> height;
+        // $product-> width = request()->input('width') || $product-> width;
+        // $product-> color = request()->input('color') || $product-> color;
+        // $product-> sold = request()->input('sold') || $product-> sold;
+// 
+        // $product-> save();
+    
+    }
+
+}

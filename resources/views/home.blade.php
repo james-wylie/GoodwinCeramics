@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                    <a href="/georgie">HOME</a>
                 </div>
             </div>
         </div>

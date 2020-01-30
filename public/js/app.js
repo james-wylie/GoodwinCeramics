@@ -1974,6 +1974,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     postProduct: function postProduct() {
+      var _this = this;
+
       axios.post('create', // this.productData
       {
         name: this.productData.name,
@@ -1985,9 +1987,16 @@ __webpack_require__.r(__webpack_exports__);
         width: this.productData.width,
         color: this.productData.color,
         sold: this.productData.sold
-      }) // .then(res => res.config.data)
+      }).then(function (res) {
+        if (res.status === 200) {
+          _this.$router.push({
+            path: '/products-list'
+          });
+        }
+      }) // .then(res => {
+      //     if(res.status === 200) this.fetchProducts()})
       ["catch"](function (err) {
-        console.log(err.response.data);
+        console.log(err.response);
       });
     }
   }
@@ -2119,26 +2128,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log('Edit Product Component mounted.');
   },
   data: function data() {
     return {
-      product: []
+      product: [],
+      newProductData: {},
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   created: function created() {
-    this.fetchArticles();
+    this.fetchProduct();
   },
   methods: {
-    fetchArticles: function fetchArticles() {
+    fetchProduct: function fetchProduct() {
       var _this = this;
 
-      axios.get(this.$route.params.id).then(function (res) {
+      axios.get("".concat(this.$route.params.id, "/show")).then(function (res) {
         _this.product = res.data;
+      }).then(function (res) {
+        return "Yes";
       })["catch"](function (err) {
         console.log(err);
+      });
+    },
+    putEditedProduct: function putEditedProduct() {
+      var _this2 = this;
+
+      // console.log()
+      axios.patch("".concat(this.$route.params.id, "/"), {
+        name: this.newProductData.name,
+        description: this.newProductData.description,
+        imageOne: this.newProductData.imageOne,
+        imageTwo: this.newProductData.imageTwo,
+        price: this.newProductData.price,
+        height: this.newProductData.height,
+        width: this.newProductData.width,
+        color: this.newProductData.color,
+        sold: this.newProductData.sold,
+        id: this.product.id
+      }).then(function (res) {
+        if (res.status === 200) {
+          _this2.$router.push({
+            path: '/products-list'
+          });
+        }
+      }) // .then(res => {
+      //     if(res.status === 200) this.fetchProducts()})
+      ["catch"](function (err) {
+        console.log(err.response);
       });
     }
   }
@@ -2205,18 +2253,28 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.fetchArticles();
+    this.fetchProducts();
   },
   methods: {
-    fetchArticles: function fetchArticles() {
+    fetchProducts: function fetchProducts() {
       var _this = this;
 
       axios.get('getproducts') // .then(res => res.json)
       .then(function (res) {
+        // console.log(res)
         _this.products = res.data.data;
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    deleteProduct: function deleteProduct(product, id) {
+      var _this2 = this;
+
+      if (confirm("Do you really want to delete ".concat(product.name, "?"))) {
+        axios["delete"]('remove/' + product.id).then(function (res) {
+          if (res.status === 200) _this2.fetchProducts();
+        });
+      }
     }
   }
 });
@@ -37965,101 +38023,268 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _vm._v("\n                    Products\n                    "),
-            _c("form", [
-              _c("br"),
-              _c("p", [
-                _vm._v("Date Created: " + _vm._s(_vm.product.created_at))
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _c("p", [
-                _vm._v("Date Update: " + _vm._s(_vm.product.updated_at))
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Title: \n                    "),
-              _c("input", {
-                attrs: {
-                  type: "text",
-                  placeholder: _vm.product.name,
-                  required: ""
+            _c(
+              "form",
+              {
+                attrs: { method: "post" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.putEditedProduct($event)
+                  }
                 }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Description: \n                    "),
-              _c("input", {
-                attrs: {
-                  type: "text-area",
-                  placeholder: _vm.product.description,
-                  required: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Image One: \n                    "),
-              _c("input", {
-                attrs: {
-                  type: "url",
-                  placeholder: _vm.product.imageOne,
-                  required: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Image Two:\n                    "),
-              _c("input", {
-                attrs: { type: "url", placeholder: _vm.product.imageOne }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Price:\n                    "),
-              _c("input", {
-                attrs: {
-                  type: "number",
-                  placeholder: _vm.product.price,
-                  required: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Color:\n                    "),
-              _c("input", {
-                attrs: { type: "text-area", placeholder: _vm.product.imageOne }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Height\n                    "),
-              _c("input", {
-                attrs: { type: "text-area", placeholder: _vm.product.imageOne }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Width\n                    "),
-              _c("input", {
-                attrs: { type: "text-area", placeholder: _vm.product.imageTwo }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Sold\n                    "),
-              _c("input", {
-                attrs: { type: "checkbox", placeholder: _vm.product.sold }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Color\n                    "),
-              _c("input", {
-                attrs: { type: "textarea", placeholder: _vm.product.color }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("Amount\n                    "),
-              _c("input", {
-                attrs: { type: "text-area", placeholder: _vm.product.price }
-              }),
-              _vm._v(" "),
-              _c("input", { attrs: { type: "submit" } })
-            ])
+              },
+              [
+                _c("input", {
+                  attrs: { type: "hidden", name: "_token" },
+                  domProps: { value: _vm.csrf }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _c("p", [
+                  _vm._v("Date Created: " + _vm._s(_vm.product.created_at))
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _c("p", [
+                  _vm._v("Date Update: " + _vm._s(_vm.product.updated_at))
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Title: \n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.name,
+                      expression: "newProductData.name"
+                    }
+                  ],
+                  attrs: { type: "text", placeholder: _vm.product.name },
+                  domProps: { value: _vm.newProductData.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newProductData, "name", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Description: \n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.description,
+                      expression: "newProductData.description"
+                    }
+                  ],
+                  attrs: {
+                    type: "text-area",
+                    placeholder: _vm.product.description
+                  },
+                  domProps: { value: _vm.newProductData.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.newProductData,
+                        "description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Image One: \n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.imageOne,
+                      expression: "newProductData.imageOne"
+                    }
+                  ],
+                  attrs: {
+                    type: "text-area",
+                    placeholder: _vm.product.imageOne
+                  },
+                  domProps: { value: _vm.newProductData.imageOne },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.newProductData,
+                        "imageOne",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Image Two:\n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.imageTwo,
+                      expression: "newProductData.imageTwo"
+                    }
+                  ],
+                  attrs: {
+                    type: "text-area",
+                    placeholder: _vm.product.imageOne
+                  },
+                  domProps: { value: _vm.newProductData.imageTwo },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.newProductData,
+                        "imageTwo",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Price:\n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.price,
+                      expression: "newProductData.price"
+                    }
+                  ],
+                  attrs: { type: "number", placeholder: _vm.product.price },
+                  domProps: { value: _vm.newProductData.price },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newProductData, "price", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Height\n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.height,
+                      expression: "newProductData.height"
+                    }
+                  ],
+                  attrs: { type: "text-area", placeholder: _vm.product.height },
+                  domProps: { value: _vm.newProductData.height },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.newProductData,
+                        "height",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Width\n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.width,
+                      expression: "newProductData.width"
+                    }
+                  ],
+                  attrs: { type: "text-area", placeholder: _vm.product.width },
+                  domProps: { value: _vm.newProductData.width },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newProductData, "width", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Color\n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.color,
+                      expression: "newProductData.color"
+                    }
+                  ],
+                  attrs: { type: "textarea", placeholder: _vm.product.color },
+                  domProps: { value: _vm.newProductData.color },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newProductData, "color", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("Sold\n                    "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newProductData.sold,
+                      expression: "newProductData.sold"
+                    }
+                  ],
+                  attrs: { type: "text-area", placeholder: _vm.product.sold },
+                  domProps: { value: _vm.newProductData.sold },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newProductData, "sold", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("input", { attrs: { type: "submit" } })
+              ]
+            )
           ])
         ]),
         _vm._v(" "),
@@ -38168,7 +38393,7 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._l(_vm.products, function(product) {
+            _vm._l(_vm.products, function(product, index) {
               return _c(
                 "li",
                 { key: product.id, staticClass: "list-group-item" },
@@ -38193,11 +38418,18 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("a", { attrs: { href: product.id } }, [
-                    _c("button", { staticClass: "btn btn-danger" }, [
-                      _vm._v("Delete")
-                    ])
-                  ])
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.deleteProduct(product, index) in _vm.products
+                        }
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  )
                 ],
                 1
               )
@@ -53682,10 +53914,6 @@ var routes = [{
   component: _components_backend__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: 'backend'
 }, {
-  path: '/editproducts/:id',
-  component: _components_editproduct__WEBPACK_IMPORTED_MODULE_0__["default"],
-  name: 'editProduct'
-}, {
   path: '/addproduct',
   component: _components_addproduct__WEBPACK_IMPORTED_MODULE_1__["default"],
   name: 'addProduct'
@@ -53693,6 +53921,10 @@ var routes = [{
   path: '/products-list',
   component: _components_products_list__WEBPACK_IMPORTED_MODULE_2__["default"],
   name: 'productsList'
+}, {
+  path: '/editproducts/:id',
+  component: _components_editproduct__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: 'editProduct'
 }];
 
 /***/ }),

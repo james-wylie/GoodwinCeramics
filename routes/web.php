@@ -2,7 +2,7 @@
 
 
 
-Route::get('/', function () {
+Route::get('/georgie', function () {
     return view('welcome');
 });
 
@@ -13,9 +13,13 @@ Route::get('/vue/{vue_capture}', function () {
 })->where('vue_capture', '[\/\w\.-]*');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/create', 'ProductController@store')->name('create');
 Route::get('/getproducts', 'ProductController@index');
-Route::get('/editproducts/{product}', 'ProductController@show')->name('{product}');
-Route::patch('/editproducts/{product}/edit', 'ProductController@edit')->name('profile.edit');
-Route::post('/create', 'ProductController@store');
+Route::get('/editproducts/{product}/show', 'ProductController@show')->name('{product}');
+Route::patch('/editproducts/{product}/', 'ProductController@update')->name('profile.update');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::delete('/remove/{product}', 'ProductController@destroy');
+
 

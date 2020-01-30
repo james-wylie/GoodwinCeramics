@@ -69,7 +69,7 @@
 
 
             methods: {
-            postProduct: function() {
+            postProduct() {
           
             axios.post('create' , 
             // this.productData
@@ -85,9 +85,14 @@
                     sold: this.productData.sold
             }
             )
-                // .then(res => res.config.data)
+                .then(res => {
+                    if(res.status === 200) {
+                        this.$router.push({ path: '/products-list' })
+                }})
+                // .then(res => {
+                //     if(res.status === 200) this.fetchProducts()})
                 .catch(err => {
-                    console.log(err.response.data)
+                    console.log(err.response)
                 })
         }
     }

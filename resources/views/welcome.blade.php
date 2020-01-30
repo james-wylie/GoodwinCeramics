@@ -73,14 +73,12 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
                     @endauth
                 </div>
             @endif
 
             <div class="content">
+                @auth
                 <div class="title m-b-md">
                     Goodwin Ceramics
                 </div>
@@ -96,6 +94,7 @@
                     <backend></backend>
                     <router-view></router-view>
                </div>
+               @endauth
             </div>
         </div>
         <script src="../js/app.js"></script>
