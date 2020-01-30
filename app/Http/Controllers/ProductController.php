@@ -87,19 +87,18 @@ class ProductController extends Controller
         $product = Product::where('id', $productId)->first();  
          
         $product->update(request()->all());
-        // Simpler is easier!!!
+      
+        // $product-> name = request('name') || $product-> name ;
+        // $product-> description = request('description') || $product-> description;
+        // $product-> imageOne = request()->input('imageOne') || $product-> imageOne;
+        // $product-> imageTwo = request()->input('imageTwo') || $product-> imageTwo;
+        // $product-> price = request()->input('price') || $product-> price;
+        // $product-> height = request()->input('height') || $product-> height;
+        // $product-> width = request()->input('width') || $product-> width;
+        // $product-> color = request()->input('color') || $product-> color;
+        // $product-> sold = request()->input('sold') || $product-> sold;
 
-        $product-> name = request('name') || $product-> name ;
-        $product-> description = request('description') || $product-> description;
-        $product-> imageOne = request()->input('imageOne') || $product-> imageOne;
-        $product-> imageTwo = request()->input('imageTwo') || $product-> imageTwo;
-        $product-> price = request()->input('price') || $product-> price;
-        $product-> height = request()->input('height') || $product-> height;
-        $product-> width = request()->input('width') || $product-> width;
-        $product-> color = request()->input('color') || $product-> color;
-        $product-> sold = request()->input('sold') || $product-> sold;
-
-        $product-> save();
+        // $product-> save();
     
     }
 
