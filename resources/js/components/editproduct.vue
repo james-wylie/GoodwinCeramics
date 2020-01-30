@@ -55,29 +55,12 @@
                         <br><p>Date Created: {{product.created_at}}</p> 
                         <br><p>Date Update: {{product.updated_at}}</p> 
                             
-                        <br>Title: 
-                        <p>{{product.name}}</p>
-                        <br>Description: 
-                        <p> {{product.description}}</p>
+                        
                         <br>Image One: 
                         <img :src="product.imageOne" alt="">
                         <br>Image Two:
                         <img :src="product.imageTwo" alt="">
-                        <br>Price:
-                        <p> {{product.price}}</p>
-                        <br>Color:
-                        <p> {{product.color}}</p>
-                        <br>Height
-                        <p> {{product.height}}</p>
-                        <br>Width
-                        <p> {{product.width}}</p>
-                        <br>Sold
-                        <p> {{product.sold}}</p>
-                        <br>Color
-                        <p> {{product.color}}</p>
-                        <br>Amount
-                        <p>{{product.price}}</p>
-                        <!-- Here I bring in the information about the product in the same manner that would be shown on the webpage. -->
+                
                     </div>
                 </div>
             </div>

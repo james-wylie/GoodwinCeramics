@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                    <div class="">Product List</div>
-                        <ul id="productList list-group">
+                    <div class="overflow-auto h-35">Product List
+                        <ul id="productList list-group ">
                             <li class="list-group-item">
                                  <router-link to="/addproduct"><button class="btn btn-success ml-5">Add New Product</button></router-link>
                             </li>
@@ -19,6 +19,7 @@
                     
                     </li>
                     </ul>
+                    </div>
                 </div>
             </div>
         </div>
