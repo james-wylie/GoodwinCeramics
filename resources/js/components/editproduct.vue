@@ -1,16 +1,14 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <div class="container mt-6">
+        <div class="row justify-content-center mt-6">
+            <div class="col-6 pt-6" style="width: 40vw;">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <div class="card-header">Edit Product</div>
 
-                    <div class="card-body">
+                    <div class="card-body form-group">
                         Products
                         <form method="post" @submit.prevent="putEditedProduct">
                         <input type="hidden" name="_token" :value="csrf">
-                        <br><p>Date Created: {{product.created_at}}</p> 
-                        <br><p>Date Update: {{product.updated_at}}</p> 
                             
                         <br>Title: 
                         <input type="text" v-model="newProductData.name"
@@ -48,22 +46,23 @@
 
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header">Product</div>
+               
+            </div>
+             <div class="col-6 " style="width: 40vw;">
+                 <div class="card">
+                    <div class="card-header">Product Details</div>
 
                     <div class="card-body">
                         <br><p>Date Created: {{product.created_at}}</p> 
                         <br><p>Date Update: {{product.updated_at}}</p> 
-                            
-                        
                         <br>Image One: 
-                        <img :src="product.imageOne" alt="">
+                        <img class="img-fluid" :src="product.imageOne" alt="">
                         <br>Image Two:
-                        <img :src="product.imageTwo" alt="">
+                        <img class="img-fluid" :src="product.imageTwo" alt="">
                 
                     </div>
                 </div>
-            </div>
+                </div>
         </div>
     </div>
 </template>

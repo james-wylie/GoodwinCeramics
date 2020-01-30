@@ -2118,7 +2118,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Edit Product Component mounted.');
@@ -2186,6 +2185,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37999,13 +38008,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+  return _c("div", { staticClass: "container mt-6" }, [
+    _c("div", { staticClass: "row justify-content-center mt-6" }, [
+      _c("div", { staticClass: "col-6 pt-6", staticStyle: { width: "40vw" } }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Edit Product")]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "card-body form-group" }, [
             _vm._v("\n                    Products\n                    "),
             _c(
               "form",
@@ -38023,16 +38032,6 @@ var render = function() {
                   attrs: { type: "hidden", name: "_token" },
                   domProps: { value: _vm.csrf }
                 }),
-                _vm._v(" "),
-                _c("br"),
-                _c("p", [
-                  _vm._v("Date Created: " + _vm._s(_vm.product.created_at))
-                ]),
-                _vm._v(" "),
-                _c("br"),
-                _c("p", [
-                  _vm._v("Date Update: " + _vm._s(_vm.product.updated_at))
-                ]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v("Title: \n                    "),
@@ -38270,10 +38269,14 @@ var render = function() {
               ]
             )
           ])
-        ]),
-        _vm._v(" "),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6 ", staticStyle: { width: "40vw" } }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Product")]),
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Product Details")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("br"),
@@ -38286,11 +38289,17 @@ var render = function() {
             _vm._v(" "),
             _c("br"),
             _vm._v("Image One: \n                    "),
-            _c("img", { attrs: { src: _vm.product.imageOne, alt: "" } }),
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: _vm.product.imageOne, alt: "" }
+            }),
             _vm._v(" "),
             _c("br"),
             _vm._v("Image Two:\n                    "),
-            _c("img", { attrs: { src: _vm.product.imageTwo, alt: "" } })
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: _vm.product.imageTwo, alt: "" }
+            })
           ])
         ])
       ])
@@ -38321,74 +38330,100 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "overflow-auto h-35" }, [
-          _vm._v("Product List\n                    "),
-          _c(
-            "ul",
-            { attrs: { id: "productList list-group " } },
-            [
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c("router-link", { attrs: { to: "/addproduct" } }, [
-                    _c("button", { staticClass: "btn btn-success ml-5" }, [
-                      _vm._v("Add New Product")
-                    ])
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.products, function(product, index) {
-                return _c(
-                  "li",
-                  { key: product.id, staticClass: "list-group-item" },
-                  [
+      _c("div", {}, [
+        _c(
+          "div",
+          {
+            staticClass: "overflow-auto d-inline-block p-6",
+            staticStyle: { height: "50vh", width: "30vw" }
+          },
+          [
+            _c(
+              "ul",
+              { attrs: { id: "productList list-group " } },
+              [
+                _c("li", { staticClass: "list-group-item" }, [
+                  _c("div", { staticClass: "row justify-content-center" }, [
                     _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to: {
-                            name: "editProduct",
-                            params: { id: product.id }
-                          }
-                        }
-                      },
+                      "div",
+                      { staticClass: "col-5" },
                       [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(product.name) +
-                            "\n                            \n                            "
-                        ),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "btn btn-info ml-5" }, [
-                          _vm._v("Edit")
+                        _c("router-link", { attrs: { to: "/addproduct" } }, [
+                          _c("button", { staticClass: "btn btn-success" }, [
+                            _vm._v("Add New Product")
+                          ])
                         ])
-                      ]
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: {
-                          click: function($event) {
-                            _vm.deleteProduct(product, index) in _vm.products
-                          }
-                        }
-                      },
-                      [_vm._v("Delete")]
+                      "div",
+                      { staticClass: "col-5 " },
+                      [
+                        _c("router-link", { attrs: { to: "/addproduct" } }, [
+                          _c("button", { staticClass: "btn btn-dark" }, [
+                            _vm._v("See Orders")
+                          ])
+                        ])
+                      ],
+                      1
                     )
-                  ],
-                  1
-                )
-              })
-            ],
-            2
-          )
-        ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.products, function(product, index) {
+                  return _c(
+                    "li",
+                    { key: product.id, staticClass: "list-group-item" },
+                    [
+                      _vm._v(
+                        "\n                        \n                            " +
+                          _vm._s(product.name) +
+                          "  \n                            \n                            "
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "editProduct",
+                              params: { id: product.id }
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "px-2 float-right btn btn-danger",
+                              on: {
+                                click: function($event) {
+                                  _vm.deleteProduct(product, index) in
+                                    _vm.products
+                                }
+                              }
+                            },
+                            [_vm._v("Delete")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            { staticClass: "btn btn-info float-right" },
+                            [_vm._v("Edit")]
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                })
+              ],
+              2
+            )
+          ]
+        )
       ])
     ])
   ])

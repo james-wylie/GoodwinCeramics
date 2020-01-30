@@ -1,20 +1,30 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                    <div class="overflow-auto h-35">Product List
+            <div class="" >
+                    <div class="overflow-auto d-inline-block p-6" style="height: 50vh; width:30vw;">
                         <ul id="productList list-group ">
                             <li class="list-group-item">
-                                 <router-link to="/addproduct"><button class="btn btn-success ml-5">Add New Product</button></router-link>
+                                <div class="row justify-content-center">
+                                    <div class="col-5">
+                                 <router-link to="/addproduct"><button class="btn btn-success">Add New Product</button></router-link>
+                                 </div>
+                              
+                                 <div class="col-5 ">
+                                 <router-link to="/addproduct"><button class="btn btn-dark">See Orders</button></router-link>
+                                 </div>
+                                 </div>
                             </li>
                             
                             <li class="list-group-item" v-for="(product, index ) in products" :key="product.id">
-                            <router-link :to="{name: 'editProduct', params: { id: product.id }}">
-                                {{product.name}}
+                            
+                                {{product.name}}  
                                 
                                 <!-- Below buttons need real V-Bind -->
-                                    <button  class="btn btn-info ml-5">Edit</button></router-link>  
-                                    <button class="btn btn-danger" @click="deleteProduct(product, index) in products">Delete</button>
+                                <router-link :to="{name: 'editProduct', params: { id: product.id }}">
+                                     <button class="px-2 float-right btn btn-danger" @click="deleteProduct(product, index) in products">Delete</button>
+                                    <button  class="btn btn-info float-right">Edit</button></router-link>  
+                                   
                                    
                     
                     </li>
@@ -23,7 +33,7 @@
                 </div>
             </div>
         </div>
-    </div>
+ 
 </template>
 
 <script>
