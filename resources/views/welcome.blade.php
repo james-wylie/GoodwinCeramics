@@ -83,13 +83,6 @@
                     Goodwin Ceramics
                 </div>
 
-                <div class="links">
-                    <a href="/">Home</a>
-                    <a href="/shop">Shop</a>
-                    <a href="/about">About</a>
-                    <a href="/contact">Contact</a>
-                    <a href="/shipping-and-info">Shipping and Info</a>
-                </div>
                <div id="app">
                     <backend></backend>
                     <router-view></router-view>

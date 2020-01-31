@@ -1,29 +1,30 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="" >
-                    <div class="overflow-auto d-inline-block p-6" style="height: 50vh; width:30vw;">
+  <div class="shop">
+    <navBar></navBar>
+
+    <div class="shop">
+     <div class="overflow-auto d-inline-block p-6 " style="position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);">
                         <ul id="productList list-group ">
                             
                             
                             <li class="list-group-item" v-for="(product, index ) in products" :key="product.id">
-                            
+                                <div style="" class="">
                                 {{product.name}}  
                                 
                                 <!-- Below buttons need real V-Bind -->
-                                <router-link :to="{name: 'editProduct', params: { id: product.id }}">
-                                     <button class="px-2 float-right btn btn-danger" @click="deleteProduct(product, index) in products">Delete</button>
-                                    <button  class="btn btn-info float-right">Edit</button></router-link>  
+                                
+                                     <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Add To Cart </button>
+                                     </div>
                                    
                                    
                     
                     </li>
                     </ul>
                     </div>
-                </div>
-            </div>
-        </div>
- 
+
+
+    </div>
+  </div>
 </template>
 
 <script>
@@ -64,19 +65,8 @@
                 }).catch(err => {
                     console.log(err)
                 })
-            },
-
-        deleteProduct(product, id) {
-            if(confirm(`Do you really want to delete ${product.name}?`)){
-            axios.delete('remove/' + product.id)
-                .then(res => {
-                    if(res.status === 200) this.fetchProducts()})
-            }}
-                
-        }    
+            }
+            }
     }
 
-    
-
-
-</script>
+            </script>

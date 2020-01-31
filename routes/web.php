@@ -6,6 +6,10 @@ Route::get('/georgie', function () {
     return view('welcome');
 });
 
+Route::get('/', function () {
+    return view('clientwelcome');
+});
+
 Auth::routes();
 
 Route::get('/vue/{vue_capture}', function () {

@@ -15,11 +15,20 @@ const router = new VueRouter({
     routes
 })
 
-Vue.component('backend', require('./components/backend.vue').default);
-Vue.component('addproduct', require('./components/addproduct.vue').default);
-Vue.component('editproduct', require('./components/editproduct.vue').default);
+//CMS Components
+Vue.component('backend', require('./components/backend.vue').default)
+Vue.component('addproduct', require('./components/addproduct.vue').default)
+Vue.component('editproduct', require('./components/editproduct.vue').default)
 Vue.component('products-list', require('./components/products-list.vue').default)
+Vue.component('viewProduct', require('./components/ClientSide/viewProduct.vue').default)
 
+// Client Side Components
+Vue.component('clientViewProductList', require('./components/ClientSide/clientViewProductList.vue').default)
+Vue.component('home', require('./components/ClientSide/home.vue').default)
+Vue.component('contact', require('./components/ClientSide/contact.vue').default)
+Vue.component('about', require('./components/ClientSide/about.vue').default)
+Vue.component('shop', require('./components/ClientSide/shop.vue').default)
+Vue.component('navBar', require('./components/ClientSide/navBar.vue').default)
 
 const app = new Vue({
     el: '#app',

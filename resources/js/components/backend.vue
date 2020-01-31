@@ -2,12 +2,16 @@
 <div>
 <router-link to="/addproduct">
 
-<a>add new product</a></router-link>
+<button class="btn btn-success">Add New Product</button></router-link>
 
 
 <router-link to="/products-list">
+  <button class="btn btn-info">Products List</button>
+</router-link>
 
-<a>products list</a></router-link>
+<router-link to="/products-list">
+  <button class="btn btn-dark">See My Orders</button>
+</router-link>
 
 </div>
 </template>
