@@ -15,6 +15,9 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('owner_id');
+
+
             $table->timestamps();
             $table->string('name');
             $table->text('description');
@@ -25,6 +28,9 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->string('color');
             $table->text('sold');
+
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

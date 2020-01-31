@@ -16,5 +16,9 @@ $factory->define(Product::class, function (Faker $faker) {
         'price'=> $faker->numberBetween($min = 35, $max = 200),
         'color'=> $faker->safeColorName,
         'sold'=> false,
+
+        'owner_id' => function () {
+            return factory(App\User::class)->create()->id;
+        }
     ];
 });
