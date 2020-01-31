@@ -59,7 +59,7 @@ class ProductController extends Controller
 
  
         // return redirect()->to('/');
-    }
+    } 
 
     public function destroy($id){
 

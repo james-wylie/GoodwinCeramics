@@ -1954,6 +1954,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      currentpage: {},
       products: [],
       product: {
         title: '',
@@ -1972,6 +1973,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.fetchProducts(1);
+    this.fetchProducts(2);
   },
   methods: {
     fetchProducts: function fetchProducts(page) {
@@ -1981,6 +1983,7 @@ __webpack_require__.r(__webpack_exports__);
       .then(function (res) {
         // console.log(res)
         _this.products = res.data.data;
+        _this.currentpage = res.data.current_page;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -38207,9 +38210,9 @@ var render = function() {
                     [
                       _c("div", {}, [
                         _vm._v(
-                          "\n                              " +
+                          "\n                                " +
                             _vm._s(product.name) +
-                            "  \n                              \n                              "
+                            "  \n                                \n"
                         ),
                         _vm._v(" "),
                         _c(
@@ -38236,9 +38239,9 @@ var render = function() {
                     [
                       _c("div", {}, [
                         _vm._v(
-                          "\n                              " +
+                          "\n                                " +
                             _vm._s(product.name) +
-                            "  \n                              \n                              \n                              "
+                            "  \n                             \n                                \n                                \n                                "
                         ),
                         _vm._v(" "),
                         _c(
@@ -38251,7 +38254,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("Two To Cart ")]
+                          [_vm._v("Two To Cart")]
                         )
                       ])
                     ]

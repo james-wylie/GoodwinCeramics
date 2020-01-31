@@ -11,20 +11,20 @@
                                 <div style="" class="">
                                 {{product.name}}  
                                 
-                                <!-- Below buttons need real V-Bind -->
-                                
+<!-- PAGINATION?? My for loop needs to show three or four shop items and then create a new row below.                                  -->
                                      <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Add To Cart </button>
                                      </div>
                                 </li>
-
+   
                             <li class="list-group-item" v-for="(product, index ) in products" :key="product.id">
                                 <div style="" class="">
                                 {{product.name}}  
+                             
                                 
                                 
                                 <!-- Below buttons need real V-Bind -->
                                 
-                                     <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Two To Cart </button>
+                                     <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Two To Cart</button>
                                      </div>
                                    
                                    
@@ -45,6 +45,7 @@
         },
         data() {
             return {
+                currentpage: {},
                 products: [],
                 product: { 
                     title: '',
@@ -63,16 +64,20 @@
         },
 
         created() {
-            this.fetchProducts(1);
+            this.fetchProducts(1)
+            this.fetchProducts(2)
         },
 
             methods: {
+
+
         fetchProducts(page) {
             axios.get(`getproducts?page=${page}`)
                 // .then(res => res.json)
                 .then(res => {
                     // console.log(res)
                     this.products = res.data.data
+                    this.currentpage = res.data.current_page
                 }).catch(err => {
                     console.log(err)
                 })
