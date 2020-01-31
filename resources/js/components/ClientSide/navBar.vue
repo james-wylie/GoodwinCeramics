@@ -5,9 +5,9 @@
 
     <div style="position: fixed; right: 20px; top: 10px;" class="links row float-right">
                 
-        <div class="p-3"><router-link to="/shop" ><p class="text-light">Shop</p></router-link></div>
-        <div class="p-3"><router-link to="/" ><p class="text-light">Home</p></router-link></div>
-        <div class="p-3"><router-link to="/about" ><p class="text-light">About</p></router-link></div>
+        <div class="p-3"><router-link to="/shop" ><p class="text-light display-4">Shop</p></router-link></div>
+        <div class="p-3"><router-link to="/" ><p class="text-light display-4">Home</p></router-link></div>
+        <div class="p-3"><router-link to="/about" ><p class="text-light display-4">About</p></router-link></div>
 
     </div>
 

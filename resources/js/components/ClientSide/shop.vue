@@ -15,6 +15,17 @@
                                 
                                      <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Add To Cart </button>
                                      </div>
+                                </li>
+
+                            <li class="list-group-item" v-for="(product, index ) in products" :key="product.id">
+                                <div style="" class="">
+                                {{product.name}}  
+                                
+                                
+                                <!-- Below buttons need real V-Bind -->
+                                
+                                     <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Two To Cart </button>
+                                     </div>
                                    
                                    
                     
@@ -52,12 +63,12 @@
         },
 
         created() {
-            this.fetchProducts();
+            this.fetchProducts(1);
         },
 
             methods: {
-        fetchProducts() {
-            axios.get('getproducts')
+        fetchProducts(page) {
+            axios.get(`getproducts?page=${page}`)
                 // .then(res => res.json)
                 .then(res => {
                     // console.log(res)

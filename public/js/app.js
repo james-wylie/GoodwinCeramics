@@ -1937,6 +1937,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -1960,13 +1971,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.fetchProducts();
+    this.fetchProducts(1);
   },
   methods: {
-    fetchProducts: function fetchProducts() {
+    fetchProducts: function fetchProducts(page) {
       var _this = this;
 
-      axios.get('getproducts') // .then(res => res.json)
+      axios.get("getproducts?page=".concat(page)) // .then(res => res.json)
       .then(function (res) {
         // console.log(res)
         _this.products = res.data.data;
@@ -38070,7 +38081,7 @@ var render = function() {
           { staticClass: "p-3" },
           [
             _c("router-link", { attrs: { to: "/shop" } }, [
-              _c("p", { staticClass: "text-light" }, [_vm._v("Shop")])
+              _c("p", { staticClass: "text-light display-4" }, [_vm._v("Shop")])
             ])
           ],
           1
@@ -38081,7 +38092,7 @@ var render = function() {
           { staticClass: "p-3" },
           [
             _c("router-link", { attrs: { to: "/" } }, [
-              _c("p", { staticClass: "text-light" }, [_vm._v("Home")])
+              _c("p", { staticClass: "text-light display-4" }, [_vm._v("Home")])
             ])
           ],
           1
@@ -38092,7 +38103,9 @@ var render = function() {
           { staticClass: "p-3" },
           [
             _c("router-link", { attrs: { to: "/about" } }, [
-              _c("p", { staticClass: "text-light" }, [_vm._v("About")])
+              _c("p", { staticClass: "text-light display-4" }, [
+                _vm._v("About")
+              ])
             ])
           ],
           1
@@ -38186,35 +38199,66 @@ var render = function() {
             _c(
               "ul",
               { attrs: { id: "productList list-group " } },
-              _vm._l(_vm.products, function(product, index) {
-                return _c(
-                  "li",
-                  { key: product.id, staticClass: "list-group-item" },
-                  [
-                    _c("div", {}, [
-                      _vm._v(
-                        "\n                              " +
-                          _vm._s(product.name) +
-                          "  \n                              \n                              "
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "px-2 float-right btn btn-info",
-                          on: {
-                            click: function($event) {
-                              _vm.addProduct(product, index) in _vm.products
+              [
+                _vm._l(_vm.products, function(product, index) {
+                  return _c(
+                    "li",
+                    { key: product.id, staticClass: "list-group-item" },
+                    [
+                      _c("div", {}, [
+                        _vm._v(
+                          "\n                              " +
+                            _vm._s(product.name) +
+                            "  \n                              \n                              "
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "px-2 float-right btn btn-info",
+                            on: {
+                              click: function($event) {
+                                _vm.addProduct(product, index) in _vm.products
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Add To Cart ")]
-                      )
-                    ])
-                  ]
-                )
-              }),
-              0
+                          },
+                          [_vm._v("Add To Cart ")]
+                        )
+                      ])
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _vm._l(_vm.products, function(product, index) {
+                  return _c(
+                    "li",
+                    { key: product.id, staticClass: "list-group-item" },
+                    [
+                      _c("div", {}, [
+                        _vm._v(
+                          "\n                              " +
+                            _vm._s(product.name) +
+                            "  \n                              \n                              \n                              "
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "px-2 float-right btn btn-info",
+                            on: {
+                              click: function($event) {
+                                _vm.addProduct(product, index) in _vm.products
+                              }
+                            }
+                          },
+                          [_vm._v("Two To Cart ")]
+                        )
+                      ])
+                    ]
+                  )
+                })
+              ],
+              2
             )
           ]
         )
