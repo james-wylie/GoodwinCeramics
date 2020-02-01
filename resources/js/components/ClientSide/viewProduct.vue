@@ -1,22 +1,35 @@
 <template>
-    <div class="container mt-6">
-        <div class="row justify-content-center mt-6">
+<div>
+    <navBar></navBar>
+    <div class="container mt-6" style="font-family: 'Asul'; width: 80vw; height: 75vh; position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);">
+        <div class="row justify-content-center mt-6 text-light">
              <div class="col-6 " style="width: 40vw;">
-                 <div class="card">
-                    <div class="card-header">Product Details</div>
-
-                    <div class="card-body">
+                <div class="">
                         <br><h1> {{product.name}}</h1> 
-                        <br><p>Date Update: {{product.updated_at}}</p> 
-                        <br>Image One: 
                         <img class="img-fluid" :src="product.imageOne" alt="">
-                        <br>Image Two:
-                        <img class="img-fluid" :src="product.imageTwo" alt="">
-                
+                        <br>
                     </div>
+                
                 </div>
+             <div class="col-6 mt-5 pt-5" style="width: 40vw;">
+                <div class="">
+                        {{product.description}}
+                        <br>  <br>
+                        Height: {{product.height}}
+                        <br>  <br>
+                        Width: {{product.width}}
+                        <br>  <br>
+                        Colour: {{product.color}}
+                        <br>  <br>
+                        Available: {{product.sold}}
+                        <br>  <br>
+                        <br>  <br>
+                        <button class="btn btn-info ">Add To Cart</button>
+                    </div>
+                
                 </div>
         </div>
+    </div>
     </div>
 </template>
 
@@ -28,7 +41,6 @@
           data() {
             return {
                 product: [],
-                newProductData: {},
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         },
@@ -42,6 +54,7 @@
         fetchProduct() {
             axios.get(`${this.$route.params.id}/show`)  
                 .then(res => {
+                    console.log(res)
                     this.product = res.data
                 })
                 .then(res => "Yes")
@@ -49,32 +62,10 @@
                     console.log(err)
                 })
         },
-        putEditedProduct() {
-                // console.log()
-               axios.patch(`${this.$route.params.id}/` , 
-            {
-                    name: this.newProductData.name,
-                    description: this.newProductData.description,
-                    imageOne: this.newProductData.imageOne,
-                    imageTwo: this.newProductData.imageTwo,
-                    price: this.newProductData.price,
-                    height: this.newProductData.height,
-                    width: this.newProductData.width,
-                    color: this.newProductData.color,
-                    sold: this.newProductData.sold,
-                    id: this.product.id
-            }
-            )
-                .then(res => {
-                    if(res.status === 200) {
-                        this.$router.push({ path: '/products-list' })
-                }})
-                // .then(res => {
-                //     if(res.status === 200) this.fetchProducts()})
-                .catch(err => {
-                    console.log(err.response)
-                })
-        }
+        
     }
     }
 </script>
+ <style >
+    @import url('https://fonts.googleapis.com/css?family=Asul:400,700&display=swap');
+</style>

@@ -25,7 +25,7 @@ Vue.component('products-list', require('./components/products-list.vue').default
 Vue.component('viewProduct', require('./components/ClientSide/viewProduct.vue').default)
 
 // Client Side Components
-Vue.component('clientViewProductList', require('./components/ClientSide/clientViewProductList.vue').default)
+Vue.component('clientViewProductList', require('./components/ClientSide/clientViewProductList.vue').default, {props: {id: {type: Number, default: 1}}})
 Vue.component('home', require('./components/ClientSide/home.vue').default)
 Vue.component('contact', require('./components/ClientSide/contact.vue').default)
 Vue.component('about', require('./components/ClientSide/about.vue').default)

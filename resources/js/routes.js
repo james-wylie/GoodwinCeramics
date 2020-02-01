@@ -16,7 +16,7 @@ export const routes = [
   { path: '/products-list', component: productsList, name: 'productsList' },
   { path: '/editproducts/:id', component: editProduct, name: 'editProduct' },
   // CLIENT SIDE ROUTES
-  { path: '/viewproduct/:id', component: viewProduct, name: 'viewproduct' },
+  { path: '/viewproduct/:id', component: viewProduct, name: 'viewproduct', props: true },
   { path: '/viewProductList', component: clientViewProductList, name: 'clientviewproductlist' },
   { path: '/', component: home, name: 'homeRoute' },
   { path: '/contact', component: contact, name: 'contact' },

@@ -3,22 +3,19 @@
     <navBar></navBar>
 
     <div class="shop">
-     <div class="noscroll overflow-auto d-inline-block p-6 " style="width: 80vw; height: 75vh; position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);">
+     <div class="noscroll overflow-auto d-inline-block p-6" style="font-family: 'Asul'; width: 80vw; height: 75vh; position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);">
                         
                             
                             <div style="width: 80vw;" class="mb-4 row justify-content-center" v-bind:key="chunk.id" v-for="chunk in productChunks"> 
                                 
-                            <div style="height: 35vh; width: 30%;" class="col-3 m-3 p-3" v-for="(product, index ) in products" :key="product.id">
-                                <router-link to="/georgie">
-                                <img style="width: 83%; height: 100%;" class="" :src="product.imageOne" alt="">
-                                <p class="text-lead">{{product.name}}| {{product.color}}<span class="text-light text-right">${{product.price}}</span></p>
-                           
-                                   </router-link>
+                            <div style="height: 50vh;" class="col-3 m-3 p-3" v-for="(product, index ) in products" :key="product.id">
+                                <router-link :to="{ name: 'viewproduct', params: {id: product.id}}">
+                                <img style="width: 100%; height: 100%;" class="" :src="product.imageOne" alt="">
+                                <p class="text-light">{{product.name}}  |   {{product.color}}<span class="text-light float-right text-right">${{product.price}}</span></p>
+                                </router-link>
                                 </div>
                             </div>
                     </div>
-
-
     </div>
   </div>
 </template>
@@ -50,7 +47,11 @@
         computed: {
             productChunks(){
                 return _.chunk((this.products), 4)
+            },
+            productRoute(index){
+                return `viewproduct/${index}`
             }
+
         },
         created() {
             this.fetchProducts()
@@ -58,6 +59,7 @@
 
             methods: {
 
+        
 
         fetchProducts(page) {
             axios.get(`getproducts`)
@@ -76,7 +78,10 @@
             </script>
 
     <style >
+    @import url('https://fonts.googleapis.com/css?family=Asul:400,700&display=swap');
+
     .noscroll::-webkit-scrollbar {
    display: none;
  }
-    </style>
+</style> 
+   
