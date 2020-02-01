@@ -3,34 +3,21 @@
     <navBar></navBar>
 
     <div class="shop">
-     <div class="overflow-auto d-inline-block p-6 " style="position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);">
-                        <ul id="productList list-group ">
+     <div class="noscroll overflow-auto d-inline-block p-6 " style="width: 80vw; height: 75vh; position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);">
+                        
                             
-                            
-                            <li class="list-group-item" v-for="(product, index ) in products" :key="product.id">
-                                <div style="" class="">
-                                {{product.name}}  
+                            <div style="width: 80vw;" class="mb-4 row justify-content-center" v-bind:key="chunk.id" v-for="chunk in productChunks"> 
+                                
+                            <div style="height: 35vh; width: 30%;" class="col-3 m-3 p-3" v-for="(product, index ) in products" :key="product.id">
+                                <img style="width: 83%; height: 100%;" class="" :src="product.imageOne" alt="">
+                                <p class="text-lead">{{product.name}}| {{product.color}}<span class="text-light">${{product.price}}</span></p>
+                           
                                 
 <!-- PAGINATION?? My for loop needs to show three or four shop items and then create a new row below.                                  -->
                                      <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Add To Cart </button>
-                                     </div>
-                                </li>
-   
-                            <li class="list-group-item" v-for="(product, index ) in products" :key="product.id">
-                                <div style="" class="">
-                                {{product.name}}  
-                             
-                                
-                                
-                                <!-- Below buttons need real V-Bind -->
-                                
-                                     <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Two To Cart</button>
-                                     </div>
                                    
-                                   
-                    
-                    </li>
-                    </ul>
+                                </div>
+                            </div>
                     </div>
 
 
@@ -45,7 +32,6 @@
         },
         data() {
             return {
-                currentpage: {},
                 products: [],
                 product: { 
                     title: '',
@@ -63,21 +49,25 @@
             }
         },
 
+        computed: {
+            productChunks(){
+                return _.chunk((this.products), 4)
+            }
+        },
         created() {
-            this.fetchProducts(1)
-            this.fetchProducts(2)
+            this.fetchProducts()
         },
 
             methods: {
 
 
         fetchProducts(page) {
-            axios.get(`getproducts?page=${page}`)
+            axios.get(`getproducts`)
                 // .then(res => res.json)
                 .then(res => {
                     // console.log(res)
                     this.products = res.data.data
-                    this.currentpage = res.data.current_page
+                    console.log(this.products)
                 }).catch(err => {
                     console.log(err)
                 })
@@ -86,3 +76,9 @@
     }
 
             </script>
+
+    <style >
+    .noscroll::-webkit-scrollbar {
+   display: none;
+ }
+    </style>

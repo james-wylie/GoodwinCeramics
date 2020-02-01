@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import backend from './components/backend.vue'
 
+import _ from 'lodash'
+
 import { routes } from './routes'
 
 require('./bootstrap');
