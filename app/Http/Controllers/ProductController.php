@@ -54,7 +54,7 @@ class ProductController extends Controller
         $product-> width = request()->input('width');
         $product-> color = request()->input('color');
         $product-> sold = request()->input('sold');
-
+        $product-> owner_id = 1;
         $product-> save();
 
  

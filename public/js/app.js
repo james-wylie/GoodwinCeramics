@@ -1933,8 +1933,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -38852,33 +38850,23 @@ var render = function() {
                     staticStyle: { height: "35vh", width: "30%" }
                   },
                   [
-                    _c("img", {
-                      staticStyle: { width: "83%", height: "100%" },
-                      attrs: { src: product.imageOne, alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "text-lead" }, [
-                      _vm._v(
-                        _vm._s(product.name) + "| " + _vm._s(product.color)
-                      ),
-                      _c("span", { staticClass: "text-light" }, [
-                        _vm._v("$" + _vm._s(product.price))
+                    _c("router-link", { attrs: { to: "/georgie" } }, [
+                      _c("img", {
+                        staticStyle: { width: "83%", height: "100%" },
+                        attrs: { src: product.imageOne, alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "text-lead" }, [
+                        _vm._v(
+                          _vm._s(product.name) + "| " + _vm._s(product.color)
+                        ),
+                        _c("span", { staticClass: "text-light text-right" }, [
+                          _vm._v("$" + _vm._s(product.price))
+                        ])
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "px-2 float-right btn btn-info",
-                        on: {
-                          click: function($event) {
-                            _vm.addProduct(product, index) in _vm.products
-                          }
-                        }
-                      },
-                      [_vm._v("Add To Cart ")]
-                    )
-                  ]
+                    ])
+                  ],
+                  1
                 )
               }),
               0

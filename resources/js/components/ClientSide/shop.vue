@@ -9,13 +9,11 @@
                             <div style="width: 80vw;" class="mb-4 row justify-content-center" v-bind:key="chunk.id" v-for="chunk in productChunks"> 
                                 
                             <div style="height: 35vh; width: 30%;" class="col-3 m-3 p-3" v-for="(product, index ) in products" :key="product.id">
+                                <router-link to="/georgie">
                                 <img style="width: 83%; height: 100%;" class="" :src="product.imageOne" alt="">
-                                <p class="text-lead">{{product.name}}| {{product.color}}<span class="text-light">${{product.price}}</span></p>
+                                <p class="text-lead">{{product.name}}| {{product.color}}<span class="text-light text-right">${{product.price}}</span></p>
                            
-                                
-<!-- PAGINATION?? My for loop needs to show three or four shop items and then create a new row below.                                  -->
-                                     <button class="px-2 float-right btn btn-info" @click="addProduct(product, index) in products">Add To Cart </button>
-                                   
+                                   </router-link>
                                 </div>
                             </div>
                     </div>
