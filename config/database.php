@@ -27,7 +27,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-    'default' => env('DB_CONNECTION', 'your_heroku_mysql_connection'),
+    'default' => env('DB_CONNECTION', 'sqlite'),
 
     // 'default' => env('DB_CONNECTION', 'mysql'),
 
@@ -49,7 +49,7 @@ return [
 
     'connections' => [
 
-        'your_heroku_mysql_connection' => array(
+        'heroku_mysql_connection' => array(
             'driver' => 'mysql',
             'host' => $host,
             'database' => $database,
