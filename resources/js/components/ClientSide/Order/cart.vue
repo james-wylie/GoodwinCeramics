@@ -6,9 +6,19 @@
 
 <script>
 export default {
+data() {
+            return {
+                cart: [],
+                cartItems: { 
+                    title: '',
+                    price: '',
+                    id: '',
+                    
+                }
+            }
+        },
 
 
-   
                methods: {
 
         

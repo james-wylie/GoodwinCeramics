@@ -1915,6 +1915,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      cart: [],
+      cartItems: {
+        title: '',
+        price: '',
+        id: ''
+      }
+    };
+  },
   methods: {
     // Is it easier to store active cart data in Cache? How to do that?
     fetchCart: function fetchCart(activeCart) {

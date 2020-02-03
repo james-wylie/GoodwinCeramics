@@ -6,17 +6,17 @@ use App\Order;
 use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
+
+    $randomCartAmount = rand(1,6);
+
     return [
-
-
-        'order_verified_at'-> now()
-        'customer_name'-> $faker->
-        'customer_address'-> $faker->
-        'customer_email'-> $faker->
-        'customer_phone_number'-> $faker->
-        'list_of_items'-> $faker->
-        'shipping_cost'-> $faker->
-        'product_cost'-> $faker->
-        'total_cost'-> $faker->
+        'customer_name'=> $faker->name,
+        'customer_address'=> $faker->address,
+        'customer_email'=> $faker->email,
+        'customer_phone_number'=> $faker->phoneNumber,
+        'list_of_items'=> $faker->word,
+        'shipping_cost'=> $faker->numberBetween($min = 3, $max = 100),
+        'product_cost'=> $faker->numberBetween($min = 100, $max = 200),
+        'total_cost'=> $faker->numberBetween($min = 200, $max = 300)
     ];
 });

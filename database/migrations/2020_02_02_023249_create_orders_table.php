@@ -17,15 +17,15 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->timestamps('order_verified_at');
+            // $table->timestamps('order_verified_at');
             $table->string('customer_name');
             $table->text('customer_address');
             $table->text('customer_email');
-            $table->text('customer_phone_number');
+            $table->string('customer_phone_number');
             $table->string('list_of_items');
-            $table->string('shipping_cost');
-            $table->string('product_cost');
-            $table->string('total_cost');
+            $table->integer('shipping_cost');
+            $table->integer('product_cost');
+            $table->integer('total_cost');
         });
     }
 
