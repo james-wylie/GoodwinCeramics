@@ -13,7 +13,7 @@
     </div>
 
     <div style="font-family: Asul; text-transform: uppercase; position: fixed; right: 20px; top: 200px;" class="links row float-right">
-            If Cart has Items show here
+            <cart></cart>
         </div>
 
     <a href="mailto: larissamaegoodwin@gmail.com"><i style="position: fixed; right: 60px; font-size: 75px; bottom: 35px;" class="text-light far fa-envelope"></i></a>

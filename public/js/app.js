@@ -1914,16 +1914,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       cart: [],
-      cartItems: {
+      cartItem: {
         title: '',
         price: '',
-        id: ''
+        id: '',
+        product_id: ''
       }
     };
+  },
+  computed: {
+    productRoute: function productRoute(index) {
+      return "viewproduct/".concat(index);
+    }
+  },
+  created: function created() {
+    this.fetchCart();
   },
   methods: {
     // Is it easier to store active cart data in Cache? How to do that?
@@ -2003,6 +2022,7 @@ __webpack_require__.r(__webpack_exports__);
       return _.chunk(this.products, 4);
     },
     productRoute: function productRoute(index) {
+      console.log(index);
       return "viewproduct/".concat(index);
     }
   },
@@ -38586,7 +38606,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    [
+      _vm._v("\r\n    CART:  (" + _vm._s(_vm.cart.length) + ")\r\n    "),
+      _vm._l(_vm.cart, function(cartItem, index) {
+        return _c(
+          "div",
+          { key: cartItem.id, staticClass: "col-3 m-3 p-3" },
+          [
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  to: {
+                    name: "viewproduct",
+                    params: { id: cartItem.product_id }
+                  }
+                }
+              },
+              [
+                _c("p", { staticClass: "text-light" }, [
+                  _vm._v(_vm._s(cartItem.name) + "  |  "),
+                  _c(
+                    "span",
+                    { staticClass: "text-light float-right text-right" },
+                    [_vm._v("$" + _vm._s(cartItem.price))]
+                  ),
+                  _vm._v(_vm._s(_vm.cart.length))
+                ])
+              ]
+            )
+          ],
+          1
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39239,7 +39296,8 @@ var render = function() {
           top: "200px"
         }
       },
-      [_vm._v("\r\n            If Cart has Items show here\r\n        ")]
+      [_c("cart")],
+      1
     ),
     _vm._v(" "),
     _vm._m(0),

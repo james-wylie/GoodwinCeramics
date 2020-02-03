@@ -53,6 +53,7 @@
                 return _.chunk((this.products), 4)
             },
             productRoute(index){
+                console.log(index)
                 return `viewproduct/${index}`
             }
 
