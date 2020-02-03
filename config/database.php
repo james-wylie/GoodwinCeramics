@@ -15,16 +15,7 @@ return [
 
 
 
-// 'your_heroku_mysql_connection' => array(
-//     'driver' => 'mysql',
-//     'host' => $host,
-//     'database' => $database,
-//     'username' => $username,
-//     'password' => $password,
-//     'charset' => 'utf8',
-//     'collation' => 'utf8_unicode_ci',
-//     'prefix' => '',
-// ),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -36,9 +27,9 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-    // 'default' => env('DB_CONNECTION', 'your_heroku_mysql_connection'),
+    'default' => env('DB_CONNECTION', 'your_heroku_mysql_connection'),
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,6 +48,17 @@ return [
     */
 
     'connections' => [
+
+        'your_heroku_mysql_connection' => array(
+            'driver' => 'mysql',
+            'host' => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ),
 
         'sqlite' => [
             'driver' => 'sqlite',
