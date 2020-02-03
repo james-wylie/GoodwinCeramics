@@ -17,6 +17,7 @@ class CreateCartsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
+            $table->timestamps('cart_verified_at');
             $table->string('name');
             $table->integer('product_id');
             $table->integer('price');

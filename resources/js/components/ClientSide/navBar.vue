@@ -1,9 +1,9 @@
 <template>
 
 <div>
-    <img style="position: fixed; left: 20px; top: 10px;" class="" src="logo.svg" alt="logogoeshere">
+    <img style="position: fixed; left: 50px; top: 10px;" class="" src="logo.svg" alt="logogoeshere">
 
-    <div style="font-family: Asul; text-transform: uppercase; position: fixed; right: 20px; top: 10px;" class="links row float-right">
+    <div style="font-family: Asul; text-transform: uppercase; position: fixed; right: 50px; top: 10px;" class="links row float-right">
                 
         <div class="p-3"><router-link to="/shop" ><p class="text-light display-4">Shop</p></router-link></div>
         <div class="p-3"><router-link to="/" ><p class="text-light display-4">Home</p></router-link></div>

@@ -11,7 +11,7 @@
       </div>
 
       <navBar></navBar>
-      
+      <footerBar></footerBar>
   </div>
 
 </template>

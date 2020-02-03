@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
+            $table->timestamps('order_verified_at');
             $table->string('customer_name');
             $table->text('customer_address');
             $table->text('customer_email');

@@ -7,6 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Cart::class, function (Faker $faker) {
     return [
-        //
+        'name' => $faker->safeColorName,
+        'cart_verified_at' => now(),
+        'product_id' => $faker->unique()->numberBetween($min = 3, $max = 100),
+        'price' => $faker->numberBetween($min = 35, $max = 200)
     ];
 });

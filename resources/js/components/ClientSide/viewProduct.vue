@@ -5,14 +5,16 @@
         <div class="row justify-content-center mt-6 text-light">
              <div class="col-6 " style="width: 40vw;">
                 <div class="">
-                        <br><h1> {{product.name}}</h1> 
-                        <img class="img-fluid" :src="product.imageOne" alt="">
+                   
+                        <img class="img-fluid rounded shadow-sm" :src="product.imageOne" alt="">
                         <br>
                     </div>
                 
                 </div>
-             <div class="col-6 mt-5 pt-5" style="width: 40vw;">
+             <div class="col-4 mt-1" style="width: 20vw;">
                 <div class="">
+                    <h1> {{product.name}}</h1> 
+                    <br>  <br>
                         {{product.description}}
                         <br>  <br>
                         Height: {{product.height}}

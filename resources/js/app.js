@@ -31,6 +31,12 @@ Vue.component('contact', require('./components/ClientSide/contact.vue').default)
 Vue.component('about', require('./components/ClientSide/about.vue').default)
 Vue.component('shop', require('./components/ClientSide/shop.vue').default)
 Vue.component('navBar', require('./components/ClientSide/navBar.vue').default)
+Vue.component('footerBar', require('./components/ClientSide/footerBar.vue').default)
+
+// ECOMMERCE Components
+Vue.component('cart', require('./components/ClientSide/Order/cart.vue').default)
+Vue.component('checkoutdetails', require('./components/ClientSide/Order/checkoutdetails.vue').default)
+Vue.component('viewcart', require('./components/ClientSide/Order/viewcart.vue').default)
 
 const app = new Vue({
     el: '#app',

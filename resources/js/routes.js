@@ -8,6 +8,8 @@ import home from './components/ClientSide/home'
 import contact from './components/ClientSide/contact'
 import about from './components/ClientSide/about'
 import shop from './components/ClientSide/shop'
+import checkoutdetails from './components/ClientSide/Order/checkoutdetails'
+import viewcart from './components/ClientSide/Order/viewcart'
 
 export const routes = [
   // CMS ROUTES
@@ -21,6 +23,8 @@ export const routes = [
   { path: '/', component: home, name: 'homeRoute' },
   { path: '/contact', component: contact, name: 'contact' },
   { path: '/about', component: about, name: 'about' },
-  { path: '/shop', component: shop, name: 'shop' }
+  { path: '/shop', component: shop, name: 'shop' },
   // ORDER ROUTES
+  { path: '/viewcart', component: viewcart, name: 'viewcart' },
+  { path: '/checkoutdetails', component: checkoutdetails, name: 'checkoutdetails' }
 ]
