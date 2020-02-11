@@ -6,31 +6,45 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Goodwin Ceramics</title>
 
-        <!-- Fonts -->
+        
         <link href="https://fonts.googleapis.com/css?family=Asul:400,700&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="./public/css/app.css">
+       
         </head>
-    <body style="background-color: #989F7A;">
+    <body style="background-color: #989F7A;
+      ">
         <div  >
-          <a href="mailto:larissamaegoodwin@gmail.com?Subject=GoodwinCeramics%20" target="_top">SEND MAIL</a>
+     
                     
                         <div class="">
                       
                             <div class="row h-100">
                                 <div class="col-7">
-                                    <h1 style="font-family: Asul, serif;  position: fixed; top:40%; left:30%; text-transform: uppercase; font-weight: 700; transform: translate(-50%, -50%); " class="text-light asul display-3"> Goodwin Ceramics </h1>
+                                    <h1 style="font-family: Asul, serif;  position: fixed; top:40%; left:30%; text-transform: uppercase; font-weight: 700; transform: translate(-50%, -50%); " class="text-light asul display-3 pl-5 ml-5"> Goodwin Ceramics </h1>
+                                    <h1 style="color: gray; font-family: Asul, serif;  position: fixed; top:50%; left:30%; font-weight: 400; transform: translate(-50%, -50%); " class="text-light asul display-5  pl-5 ml-3"> coming soon </h1>
+                                    
                                     <a href="mailto:larissamaegoodwin@gmail.com?Subject=GoodwinCeramics%20" target="_top">
-                                    <h1 style="font-family: Asul, serif;  position: fixed; top:70%; left:30%; text-transform: uppercase; font-weight: 700; transform: translate(-50%, -50%); " class="text-light asul display-3">Contact</h1></a>
+                                    <h1 style="font-family: Asul, serif;  position: fixed; top:70%; left:30%; text-transform: uppercase; font-weight: 700; transform: translate(-50%, -50%); " class="text-light asul display-3 pl-5 ml-3">Contact</h1></a>
                                 </div>
                                 <div class="col-2"></div>
-                                <div class="col-3 h-100">
-                            <img src="./public/images/IMG_20200119_082303_018.jpg" style="transform: translate(-50%, -50%);" class="img-fluid">
+                            <div class="col-3 h-100">
+                            <img src="./public/images/20200203_123945.jpg" style="transform: translate(-50%);" class="img-fluid m-1">
+
+                            <img src="./public/images/IMG_20200119_082303_018.jpg" style="transform: translate(-50%);" class="img-fluid m-1">
                                 
-                            <img src="./public/images/IMG_20200125_130414_823.jpg" style="transform: translate(-50%, -50%);" class="img-fluid">
+                            <img src="./public/images/IMG_20200125_130414_823.jpg" style="transform: translate(-50%);" class="img-fluid m-1">
                                     
-                            <img src="./public/images/IMG_20200129_223710_634.jpg" style="top:80%; left:90%; transform: translate(-50%, -50%);" class="img-fluid">
+                            <img src="./public/images/IMG_20200129_223710_634.jpg" style="transform: translate(-50%);" class="img-fluid m-1">
+                     
+                            <img src="./public/images/20200203_123945.jpg" style="transform: translate(-50%); " class="img-fluid m-1 show-mobile">
+
+                            <img src="./public/images/IMG_20200119_082303_018.jpg" style="transform: translate(-50%); " class="img-fluid m-1 show-mobile">
+                                
+                            <img src="./public/images/IMG_20200125_130414_823.jpg" style="transform: translate(-50%); " class="img-fluid m-1 show-mobile">
+                                    
+                            <img src="./public/images/IMG_20200129_223710_634.jpg" style="transform: translate(-50%); " class="img-fluid m-1 show-mobile">
+                           
                       
                         </div>
                         </div>
@@ -41,3 +55,20 @@
         </div>
     </body>
 </html>
+
+<style>
+
+    .show-mobile{
+        display: none;
+    }
+ @media only screen and (max-width: 830px) {
+        h1{
+            font-size: 20px !important;
+            
+        }
+        .show-mobile{
+            display: block;
+        } 
+    }
+
+</style>
