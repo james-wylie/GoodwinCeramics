@@ -56583,8 +56583,8 @@ var routes = [// CMS ROUTES
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\james\Desktop\GoodwinCeramics\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\james\Desktop\GoodwinCeramics\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\james\Desktop\Coding\GoodwinCeramics\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\james\Desktop\Coding\GoodwinCeramics\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
