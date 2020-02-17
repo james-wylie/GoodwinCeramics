@@ -2,17 +2,17 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(getenv("DB_CONNECTION"));
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 // echo '<pre>';
 // var_dump( $url);
 // echo '</pre>';
 // die;
 
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
+// $host = $url["host"];
+// $username = $url["user"];
+// $password = $url["pass"];
+// $database = substr($url["path"], 1);
 
 
 return [
@@ -54,16 +54,16 @@ return [
 
     'connections' => [
 
-        'heroku_mysql_connection' => array(
-            'driver' => 'mysql',
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-        ),
+        // 'heroku_mysql_connection' => array(
+        //     'driver' => 'mysql',
+        //     'host' => $host,
+        //     'database' => $database,
+        //     'username' => $username,
+        //     'password' => $password,
+        //     'charset' => 'utf8',
+        //     'collation' => 'utf8_unicode_ci',
+        //     'prefix' => '',
+        // ),
 
         'sqlite' => [
             'driver' => 'sqlite',
