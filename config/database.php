@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$url = parse_url(getenv("DB_CONNECTION"));
+
+// echo '<pre>';
+// var_dump( $url);
+// echo '</pre>';
+// die;
 
 $host = $url["host"];
 $username = $url["user"];
