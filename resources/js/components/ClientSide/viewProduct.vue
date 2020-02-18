@@ -1,6 +1,9 @@
 <template>
 <div>
     <navBar></navBar>
+    <div hidden id="snipcart" data-api-key="NGQ2NmYzMDEtN2E0NS00ZDViLWI1NDEtOTAzZDkzYjllMGY5NjM3MTc1MDE0OTgxMDQwMDkw
+"></div>
+
     <div class="container mt-6" style="font-family: 'Asul'; width: 80vw; height: 75vh; position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);">
         <div class="row justify-content-center mt-6 text-light">
              <div class="col-6 " style="width: 40vw;">
@@ -26,12 +29,21 @@
                         Available: {{product.sold}}
                         <br>  <br>
                         <br>  <br>
-                        <button class="btn btn-info ">Add To Cart</button>
+                        <button class="snipcart-add-item"
+                            data-item-id="{product.height}"
+                            data-item-price="product.price"
+                            data-item-url="www.goodwinceramics.co.nz/product.url"
+                            data-item-description="product.description"
+                            data-item-image="product.imageOne"
+                            data-item-name="The Starry Night">
+                            Add to cart
+                            </button>
                     </div>
                 
                 </div>
         </div>
     </div>
+
     </div>
 </template>
 
@@ -71,3 +83,5 @@
  <style >
     @import url('https://fonts.googleapis.com/css?family=Asul:400,700&display=swap');
 </style>
+
+

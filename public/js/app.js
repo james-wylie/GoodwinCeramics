@@ -2093,6 +2093,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Edit Product Component mounted.');
@@ -39475,6 +39487,15 @@ var render = function() {
     [
       _c("navBar"),
       _vm._v(" "),
+      _c("div", {
+        attrs: {
+          hidden: "",
+          id: "snipcart",
+          "data-api-key":
+            "NGQ2NmYzMDEtN2E0NS00ZDViLWI1NDEtOTAzZDkzYjllMGY5NjM3MTc1MDE0OTgxMDQwMDkw\r\n"
+        }
+      }),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -39564,9 +39585,26 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-info " }, [
-                      _vm._v("Add To Cart")
-                    ])
+                    _c(
+                      "button",
+                      {
+                        staticClass: "snipcart-add-item",
+                        attrs: {
+                          "data-item-id": "{product.height}",
+                          "data-item-price": "product.price",
+                          "data-item-url":
+                            "www.goodwinceramics.co.nz/product.url",
+                          "data-item-description": "product.description",
+                          "data-item-image": "product.imageOne",
+                          "data-item-name": "The Starry Night"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                            Add to cart\r\n                            "
+                        )
+                      ]
+                    )
                   ])
                 ]
               )
@@ -56116,14 +56154,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************!*\
   !*** ./resources/js/components/ClientSide/viewProduct.vue ***!
   \************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _viewProduct_vue_vue_type_template_id_1a1f0968___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./viewProduct.vue?vue&type=template&id=1a1f0968& */ "./resources/js/components/ClientSide/viewProduct.vue?vue&type=template&id=1a1f0968&");
 /* harmony import */ var _viewProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewProduct.vue?vue&type=script&lang=js& */ "./resources/js/components/ClientSide/viewProduct.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _viewProduct_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./viewProduct.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/ClientSide/viewProduct.vue?vue&type=style&index=0&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _viewProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _viewProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _viewProduct_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./viewProduct.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/ClientSide/viewProduct.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -56155,7 +56194,7 @@ component.options.__file = "resources/js/components/ClientSide/viewProduct.vue"
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/ClientSide/viewProduct.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
